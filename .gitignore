@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local SQLite Database and runtime logs
+truthlens.db
+*.log
+
+# Environment files
+.env
+.venv
+env/
+venv/
+ENV/
