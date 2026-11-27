@@ -13,6 +13,7 @@ import numpy as np
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MODEL_PATH = os.path.join(BASE_DIR, "fake_news_model.pkl")
 VECTORIZER_PATH = os.path.join(BASE_DIR, "vectorizer.pkl")
+MIN_CLASSIFICATION_PROBABILITY = 0.80
 
 # Sensationalist / Clickbait keyword patterns
 SENSATIONAL_PATTERNS = [
@@ -297,21 +298,33 @@ class TruthLensEngine:
         combined_input = f"{clean_headline} {clean_text}".strip()
         vec = self.vectorizer.transform([combined_input])
 
-        prediction_raw = int(self.model.predict(vec)[0])
         probabilities = self.model.predict_proba(vec)[0]
 
-        fake_prob = float(probabilities[0])
-        real_prob = float(probabilities[1])
+        class_probabilities = {
+            int(label): float(probability)
+            for label, probability in zip(self.model.classes_, probabilities)
+        }
+        if set(class_probabilities) != {0, 1}:
+            raise ValueError(
+                f"Expected model classes 0 (fake) and 1 (real); got {sorted(class_probabilities)}."
+            )
+        fake_prob = class_probabilities[0]
+        real_prob = class_probabilities[1]
 
         # 3. Classification & Confidence Calculation
         credibility_score = round(real_prob * 100, 1)
         
-        if fake_prob >= 0.65:
+        if not lang_info["is_english"]:
+            classification = "Needs Verification"
+            prediction_label = "NEEDS_VERIFICATION"
+            confidence = round(max(fake_prob, real_prob) * 100, 1)
+            risk_level = "MODERATE"
+        elif fake_prob >= MIN_CLASSIFICATION_PROBABILITY:
             classification = "Likely Fake"
             prediction_label = "FAKE"
             confidence = round(fake_prob * 100, 1)
             risk_level = "CRITICAL" if fake_prob >= 0.88 else "HIGH"
-        elif real_prob >= 0.65:
+        elif real_prob >= MIN_CLASSIFICATION_PROBABILITY:
             classification = "Likely Real"
             prediction_label = "REAL"
             confidence = round(real_prob * 100, 1)
@@ -372,8 +385,12 @@ class TruthLensEngine:
             if sentence_data["suspicious_count"] > 0:
                 reasons.append(f"{sentence_data['suspicious_count']} sentence(s) flagged for abnormal evidentiary framing.")
         else:
-            reasons.append("Article contains mixed linguistic signals balancing credible statements and unsubstantiated framing.")
-            reasons.append("Confidence score is within the borderline decision margin (35% - 65%). Corroborating sources required.")
+            if not lang_info["is_english"]:
+                reasons.append("The classifier is trained on English-language articles; this input may be outside its supported language range.")
+                reasons.append("No fake-or-real verdict is issued. Verify the article with reliable sources.")
+            else:
+                reasons.append("The model did not reach the decision threshold for either label.")
+                reasons.append("Corroborating sources are required before treating this article as real or fake.")
 
         # 10. Suggested Verification Steps
         verification_steps = []
@@ -399,6 +416,7 @@ class TruthLensEngine:
             "prediction": prediction_label,
             "classification": classification,
             "confidence": confidence,
+            "confidence_calibrated": False,
             "credibility_score": credibility_score,
             "risk_level": risk_level,
             "sensationalism": sensational_data,

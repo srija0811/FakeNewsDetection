@@ -4,6 +4,9 @@ Safely parses web articles, extracting headline, body text, byline, date, and do
 """
 
 import requests
+import ipaddress
+import socket
+from urllib.parse import urlparse, urljoin
 from bs4 import BeautifulSoup
 from truthlens.source_checker import extract_domain
 
@@ -30,16 +33,55 @@ def extract_article_from_url(url: str, timeout: int = 10) -> dict:
     if not clean_url.startswith(("http://", "https://")):
         clean_url = "https://" + clean_url
 
+    parsed = urlparse(clean_url)
+    if parsed.scheme not in ("http", "https") or not parsed.hostname:
+        return {"success": False, "error": "Invalid URL format."}
+
+    def is_public_hostname(hostname):
+        if hostname in ("localhost", "localhost.localdomain"):
+            return False
+        try:
+            addresses = socket.getaddrinfo(hostname, None)
+            for address in addresses:
+                ip = ipaddress.ip_address(address[4][0])
+                if ip.is_private or ip.is_loopback or ip.is_link_local or ip.is_reserved or ip.is_multicast:
+                    return False
+            return True
+        except socket.gaierror:
+            return False
+
+    if not is_public_hostname(parsed.hostname):
+        return {"success": False, "error": "Private, local, or reserved network addresses are not allowed."}
+
     domain = extract_domain(clean_url)
 
     try:
-        response = requests.get(
-            clean_url,
-            headers=DEFAULT_HEADERS,
-            timeout=timeout,
-            allow_redirects=True,
-            verify=True
-        )
+        response = None
+        current_url = clean_url
+        for _ in range(5):
+            response = requests.get(
+                current_url,
+                headers=DEFAULT_HEADERS,
+                timeout=timeout,
+                allow_redirects=False,
+                verify=True
+            )
+            if response.status_code not in (301, 302, 303, 307, 308):
+                break
+            location = response.headers.get("Location")
+            if not location:
+                break
+            redirected = urljoin(current_url, location)
+            redirected_host = urlparse(redirected).hostname
+            if not redirected_host or not is_public_hostname(redirected_host):
+                return {
+                    "success": False,
+                    "error": "The article redirected to a private or unsafe network address.",
+                    "domain": domain,
+                    "url": clean_url
+                }
+            current_url = redirected
+        clean_url = current_url
 
         if response.status_code == 403:
             return {

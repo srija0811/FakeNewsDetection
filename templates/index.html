@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRUTHLENS AI — Neon Editorial Intelligence</title>
-    <meta name="description" content="Gen-Z futuristic editorial news verification platform powered by 122K semantic NLP forensics, Explainable AI attribution, and real-time source reputation mapping.">
+    <title>TRUTHLENS AI</title>
+    <meta name="application-name" content="TRUTHLENS AI">
+    <meta name="apple-mobile-web-app-title" content="TRUTHLENS AI">
+    <meta property="og:site_name" content="TRUTHLENS AI">
+    <meta name="description" content="TRUTHLENS AI is a neon editorial news analysis platform powered by NLP and explainable AI.">
     
-    <!-- Google Fonts: Syne, Space Grotesk, Instrument Serif, Plus Jakarta Sans, JetBrains Mono -->
+    <!-- Application typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Chart.js & Canvas Confetti -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
@@ -44,76 +47,46 @@
                 </div>
                 <div class="brand-text">
                     <h1>TRUTHLENS</h1>
-                    <span>NEON EDITORIAL AI</span>
+                    <span>AI</span>
                 </div>
             </div>
 
             <ul class="nav-links">
                 <li class="nav-item active">
-                    <button class="nav-btn" data-tab="landing">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                        <span>Editorial Feed</span>
+                    <button class="nav-btn" data-tab="dashboard">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                        <span data-i18n="dashboard">Dashboard</span>
                     </button>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-btn" data-tab="analyzer">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                        <span>Truth Scanner</span>
-                        <span class="nav-badge">LIVE</span>
-                    </button>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-btn" data-tab="report">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-                        <span>Truth Dossier</span>
-                    </button>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-btn" data-tab="source">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                        <span>Source Explorer</span>
-                    </button>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-btn" data-tab="explorer">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                        <span>AI News Beat</span>
-                    </button>
-                </li>
-
-                <!-- Disinformation Vectors Navigation -->
-                <li class="nav-section-divider">
-                    <span>DECEPTION TAXONOMY</span>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-btn" data-tab="fake-newspapers">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"></path><path d="M18 14h-8"></path><path d="M15 18h-5"></path><path d="M10 6h8v4h-8V6Z"></path></svg>
-                        <span>Fake Newspapers</span>
-                        <span class="nav-badge" style="background:rgba(255,107,138,0.2); color:var(--accent-coral);">CLONE</span>
+                    <button class="nav-btn" data-tab="articles">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="8" y1="13" x2="16" y2="13"></line><line x1="8" y1="17" x2="16" y2="17"></line></svg>
+                        <span data-i18n="articles">Fake Articles</span>
                     </button>
                 </li>
                 <li class="nav-item">
                     <button class="nav-btn" data-tab="fake-posts">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>
-                        <span>Fake Social Posts</span>
-                        <span class="nav-badge" style="background:rgba(213,255,85,0.2); color:var(--accent-lime);">VIRAL</span>
+                        <span data-i18n="posts">Fake Posts</span>
                     </button>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-btn" data-tab="fake-research">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-                        <span>Fake Research</span>
-                        <span class="nav-badge" style="background:rgba(167,139,250,0.2); color:var(--accent-lilac);">PAPERS</span>
+                    <button class="nav-btn" data-tab="fake-images">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m21 15-5-5L5 21"></path></svg>
+                        <span data-i18n="images">Fake Images</span>
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-btn" data-tab="history">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 3v5h5"></path><path d="M12 7v5l3 2"></path></svg>
+                        <span data-i18n="history">History</span>
                     </button>
                 </li>
             </ul>
 
             <div class="sidebar-footer">
                 <div class="controls-bar">
-                    <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()">
-                        <span>☀️ Light Paper</span>
-                    </button>
-                    <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--accent-lime);">v2.5 PRO</span>
+                    <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--accent-lime);">TRUTHLENS AI · v2.5 PRO</span>
                 </div>
             </div>
         </aside>
@@ -134,1198 +107,164 @@
                 </button>
             </div>
 
+            <div class="top-controls-bar" role="navigation" aria-label="Display and language settings">
+                <label class="sr-only" for="languageSelector" data-i18n="language">Language</label>
+                <select id="languageSelector" class="language-selector" aria-label="Language">
+                    <option value="en">English</option>
+                    <option value="te">తెలుగు</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="ta">தமிழ்</option>
+                    <option value="kn">ಕನ್ನಡ</option>
+                    <option value="ml">മലയാളം</option>
+                    <option value="bn">বাংলা</option>
+                    <option value="mr">मराठी</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                    <option value="ar">العربية</option>
+                    <option value="zh">中文</option>
+                    <option value="ja">日本語</option>
+                </select>
+                <button class="theme-toggle-btn" id="themeToggleBtn" type="button" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg>
+                    <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z"></path></svg>
+                    <span id="themeToggleLabel" data-i18n="themeLight">Light mode</span>
+                </button>
+            </div>
+
             <!-- Content Area -->
             <div class="content-container">
 
-                <!-- TAB 1: EDITORIAL FEED & HERO SECTION -->
-                <section class="tab-content active" id="tab-landing">
-                    <div class="hero-editorial-wrapper">
-                        <div class="hero-scanner-stage">
-                            <!-- Left: Oversized Editorial Copy -->
-                            <div>
-                                <div class="hero-kicker-strip">
-                                    <span class="badge-pill">NEON EDITORIAL INTELLIGENCE</span>
-                                    <span class="badge-pill-lilac badge-pill">122K NLP DIMENSIONS</span>
-                                </div>
-                                <h2 class="hero-editorial-headline">
-                                    <span class="headline-line-1">THE INTERNET IS <span class="headline-loud">LOUD.</span></span>
-                                    <span class="headline-line-2">FIND WHAT'S <span class="headline-true">TRUE.</span></span>
-                                </h2>
-                                <p class="hero-editorial-subhead">
-                                    An intelligent AI-powered fact-checking platform designed to navigate the complexity of digital misinformation. Leveraging advanced NLP, Explainable AI, and source credibility analysis, TRUTHLENS AI evaluates news content, identifies suspicious claims, and delivers transparent, evidence-driven insights.
-                                </p>
-                                <div class="hero-value-bar">
-                                    <span class="value-item"><span class="value-dot">✦</span> Advanced Language Intelligence</span>
-                                    <span class="value-dot">•</span>
-                                    <span class="value-item"><span class="value-dot">✦</span> Explainable Predictions</span>
-                                    <span class="value-dot">•</span>
-                                    <span class="value-item"><span class="value-dot">✦</span> Trustworthy Verification</span>
-                                </div>
-                                <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-                                    <button class="btn-cta-lime" onclick="scrollToVerification()">
-                                        <span>SCAN THE TRUTH ↗</span>
-                                    </button>
-                                    <button class="btn-secondary" onclick="prefillExample('reuters')">
-                                        <span>🏛️ Reuters Benchmark</span>
-                                    </button>
-                                    <button class="btn-secondary" onclick="document.getElementById('disinformationTaxonomySection').scrollIntoView({behavior:'smooth'})">
-                                        <span>🔍 3 Vectors of Deception ↓</span>
-                                    </button>
-                                </div>
-                                <div style="display:flex; align-items:center; gap:8px; margin-top:16px; flex-wrap:wrap;">
-                                    <span style="font-family:var(--font-mono); font-size:0.72rem; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Vectors:</span>
-                                    <button class="chip-btn" onclick="switchTab('fake-newspapers')">📰 Fake News Papers</button>
-                                    <button class="chip-btn" onclick="switchTab('fake-posts')">📱 Fake Posts</button>
-                                    <button class="chip-btn" onclick="switchTab('fake-research')">📑 Fake Research Papers</button>
-                                </div>
-                            </div>
-
-                            <!-- Right: Signature TRUTH SCANNER Visual with Floating Cards -->
-                            <div>
-                                <div class="truth-scanner-visual">
-                                    <!-- Floating News Snippet Left -->
-                                    <div class="floating-news-card floating-news-card-left">
-                                        <span class="snippet-tag" style="color:var(--accent-lime);">⚡ 98.6% VERIFIED</span>
-                                        <div class="snippet-text">"Federal Reserve holds benchmark rate steady in Washington..."</div>
-                                    </div>
-
-                                    <!-- Floating News Snippet Right -->
-                                    <div class="floating-news-card floating-news-card-right">
-                                        <span class="snippet-tag" style="color:var(--accent-coral);">🚨 FLAGGED HOAX</span>
-                                        <div class="snippet-text">"Secret alien lab exposed under the Pentagon by whistleblowers..."</div>
-                                    </div>
-
-                                    <!-- Rotating Concentric Rings -->
-                                    <div class="scanner-ring-outer"></div>
-                                    <div class="scanner-ring-middle"></div>
-                                    <div class="scanner-ring-inner">
-                                        <div class="scanner-radar-sweep"></div>
-                                    </div>
-                                    <div class="scanner-center-core"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Interactive Verification Console -->
-                    <div class="analyzer-card" id="newsVerificationBox">
-                        <!-- Horizontal Laser Scanning Beam -->
-                        <div class="scanning-laser-beam" id="scanningLaserBeam"></div>
-
-                        <!-- Multi-Stage Animated Scanner Overlay -->
-                        <div class="scanner-overlay" id="scannerOverlay">
-                            <div class="truth-scanner-visual" style="width:200px; height:200px; margin-bottom:10px;">
-                                <div class="scanner-ring-outer"></div>
-                                <div class="scanner-ring-middle"></div>
-                                <div class="scanner-ring-inner">
-                                    <div class="scanner-radar-sweep"></div>
-                                </div>
-                                <div class="scanner-center-core" style="width:28px; height:28px;"></div>
-                            </div>
-
-                            <ul class="scanning-stages-list">
-                                <li class="scan-stage-item" id="scanStage1">
-                                    <span class="stage-icon">○</span>
-                                    <span>Reading article & extracting syntax...</span>
-                                </li>
-                                <li class="scan-stage-item" id="scanStage2">
-                                    <span class="stage-icon">○</span>
-                                    <span>Detecting suspicious & sensational language...</span>
-                                </li>
-                                <li class="scan-stage-item" id="scanStage3">
-                                    <span class="stage-icon">○</span>
-                                    <span>Evaluating credibility against 122K features...</span>
-                                </li>
-                                <li class="scan-stage-item" id="scanStage4">
-                                    <span class="stage-icon">○</span>
-                                    <span>Synthesizing Truth Intelligence Report...</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- Input Mode Selector -->
-                        <div class="input-mode-tabs">
-                            <button class="input-mode-btn active" data-mode="text">
-                                <span>Paste Article Text</span>
-                            </button>
-                            <button class="input-mode-btn" data-mode="url">
-                                <span>Analyze Article URL</span>
-                            </button>
-                            <button class="input-mode-btn" data-mode="image">
-                                <span>Screenshot OCR Extract</span>
-                            </button>
-                        </div>
-
-                        <!-- Headline Input -->
-                        <div style="margin-bottom:16px;">
-                            <input type="text" id="headlineInput" class="custom-input" placeholder="Article Headline (Optional — enables clickbait & consistency analysis)...">
-                        </div>
-
-                        <!-- Mode 1: Text Input -->
-                        <div class="input-mode-view active" id="mode-view-text">
-                            <textarea id="newsTextInput" class="custom-input custom-textarea" placeholder="Paste full article text, claims, or dispatches here for high-dimensional forensic verification..."></textarea>
-                        </div>
-
-                        <!-- Mode 2: URL Input -->
-                        <div class="input-mode-view" id="mode-view-url">
-                            <input type="url" id="newsUrlInput" class="custom-input" style="padding:18px;" placeholder="https://www.reuters.com/business/world-dispatch...">
-                            <p style="font-size:0.85rem; color:var(--text-muted); margin-top:10px;">
-                                🌐 Autonomous scraper parses headline, full article paragraphs, publisher domain, and author bylines.
-                            </p>
-                        </div>
-
-                        <!-- Mode 3: Image OCR Input -->
-                        <div class="input-mode-view" id="mode-view-image">
-                            <div class="drop-zone" id="imageDropZone">
-                                <div style="font-size:3rem; margin-bottom:12px;">🖼️</div>
-                                <h4 style="font-family:var(--font-heading); font-size:1.25rem; font-weight:800; color:var(--text-cream); margin-bottom:8px;">
-                                    Drop News Screenshot or Image Here
-                                </h4>
-                                <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:16px;">
-                                    Drag & drop image file or click to browse (PNG, JPG, WEBP)
-                                </p>
-                                <span class="badge-pill">High-Speed Optical Character Recognition</span>
-                                <input type="file" id="imageFileInput" accept="image/*" style="display:none;">
-                                <div id="ocrStatusMessage"></div>
-                            </div>
-                        </div>
-
-                        <!-- Analyzer Action Bar -->
-                        <div class="analyzer-actions">
-                            <div class="example-chips">
-                                <span class="example-label">Pre-loaded Benchmarks:</span>
-                                <button class="chip-btn" onclick="prefillExample('reuters')">🏛️ Reuters Wire Dispatch</button>
-                                <button class="chip-btn" onclick="prefillExample('clickbait')">⚡ Viral Hoax Clickbait</button>
-                            </div>
-
-                            <button class="btn-primary-analyze" id="analyzeBtn" onclick="runAnalysis()">
-                                <span>EXECUTE INTELLIGENCE SCAN ↗</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Live Credibility Statistics (Animated Count-Up) -->
-                    <div class="stats-grid">
-                        <div class="glass-card stat-card" style="border-top-color:var(--accent-lime);">
-                            <div class="stat-icon">📚</div>
-                            <div class="stat-value" data-count-target="44898" data-count-suffix="+">44,898+</div>
-                            <div class="stat-label">Verified Training Corpus</div>
-                        </div>
-                        <div class="glass-card stat-card" style="border-top-color:var(--accent-coral);">
-                            <div class="stat-icon">🎯</div>
-                            <div class="stat-value" data-count-target="98.69" data-count-suffix="%">98.69%</div>
-                            <div class="stat-label">Precision & Accuracy</div>
-                        </div>
-                        <div class="glass-card stat-card" style="border-top-color:var(--accent-lilac);">
-                            <div class="stat-icon">🧠</div>
-                            <div class="stat-value" data-count-target="122201" data-count-suffix="">122,201</div>
-                            <div class="stat-label">NLP Semantic Dimensions</div>
-                        </div>
-                        <div class="glass-card stat-card" style="border-top-color:var(--text-cream);">
-                            <div class="stat-icon">⚡</div>
-                            <div class="stat-value">&lt;40ms</div>
-                            <div class="stat-label">Inference Latency</div>
-                        </div>
-                    </div>
-
-                    <!-- =======================================================
-                         DISINFORMATION TAXONOMY: 3 VECTORS OF DECEPTION
-                         1. Fake News Papers  2. Fake Posts  3. Fake Research Papers
-                         ======================================================= -->
-                    <div class="vector-section-wrapper" id="disinformationTaxonomySection">
+                                <!-- TAB 0: DASHBOARD -->
+                <section class="tab-content active" id="tab-dashboard">
+                    <div class="dashboard-wrapper simple-dashboard">
                         <div class="section-header">
-                            <div class="badge-pill badge-pill-coral">Disinformation Anatomy</div>
-                            <h3 class="section-title">Three Vectors of Modern Deception</h3>
-                            <p class="section-desc">
-                                Misinformation does not operate in isolation. TruthLens AI evaluates the three distinct vectors where false claims metastasize: cloned news tabloids, viral social manipulation, and predatory pseudoscientific journals.
-                            </p>
+                            <h2 class="section-title" data-i18n="dashboard">Dashboard</h2>
                         </div>
-
-                        <div class="vector-grid">
-                            <!-- VECTOR 1: FAKE NEWS PAPERS & TABLOIDS -->
-                            <div class="vector-column-card vector-card-papers">
-                                <div>
-                                    <div class="vector-header">
-                                        <div class="vector-icon-badge" style="color:var(--accent-coral);">📰</div>
-                                        <div>
-                                            <h4 class="vector-title">Fake News Papers</h4>
-                                            <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--accent-coral); font-weight:700;">VECTOR 01 // CLONED TABLOIDS</span>
-                                        </div>
-                                    </div>
-                                    <p class="vector-desc">
-                                        Spoofed domain mastheads, synthetic press bureaus, anonymous non-existent correspondents, and fabricated political conspiracy dispatches crafted to emulate reputable news agencies.
-                                    </p>
-
-                                    <div class="case-study-list">
-                                        <!-- Case 1 -->
-                                        <div class="case-study-item">
-                                            <span class="case-study-tag" style="color:var(--accent-coral);">CLONED PRESS FABRICATION</span>
-                                            <h5 class="case-study-title">The European Chronicle: Secret midnight pact cedes sovereign border territory</h5>
-                                            <p class="case-study-snippet">
-                                                "Anonymous cabinet whistleblowers confirmed a classified midnight summit where ministers secretly agreed to surrender municipal mineral rights without legislative vote."
-                                            </p>
-                                            <div class="case-study-markers">
-                                                <span class="marker-pill">Spoofed TLD (.biz)</span>
-                                                <span class="marker-pill">Anonymous Whistleblower</span>
-                                                <span class="marker-pill">Sensationalist Hysteria</span>
-                                            </div>
-                                            <button class="btn-case-test" onclick="testCaseStudy('The European Chronicle: Secret midnight pact cedes sovereign border territory', 'Anonymous cabinet whistleblowers confirmed a classified midnight summit where ministers secretly agreed to surrender municipal mineral rights without legislative vote. Leaked documents prove state censors are scrubbing all public records! Watch before deletion!', 'http://european-chronicle.biz/classified-leak')">
-                                                <span>⚡ Test in Truth Scanner</span>
-                                            </button>
-                                        </div>
-
-                                        <!-- Case 2 -->
-                                        <div class="case-study-item">
-                                            <span class="case-study-tag" style="color:var(--accent-coral);">TABLOID OUTRAGE HOAX</span>
-                                            <h5 class="case-study-title">National Inquiry Tribune: Secret royal memo confirms hidden succession crisis</h5>
-                                            <p class="case-study-snippet">
-                                                "BREAKING BOMBSHELL: High-level palace sources leak explosive audio proving monarch has privately abdicated royal duties amid family revolt."
-                                            </p>
-                                            <div class="case-study-markers">
-                                                <span class="marker-pill">Clickbait Shouting</span>
-                                                <span class="marker-pill">Zero Palace Attribution</span>
-                                                <span class="marker-pill">Fabricated Audio Leak</span>
-                                            </div>
-                                            <button class="btn-case-test" onclick="testCaseStudy('BREAKING BOMBSHELL: Secret royal memo confirms hidden succession crisis', 'High-level palace sources leak explosive audio proving monarch has privately abdicated royal duties amid family revolt. Mainstream media is ordered into silence. Share this shocking report before it is wiped!', 'http://national-inquiry-breaking.xyz/royal-crisis')">
-                                                <span>⚡ Test in Truth Scanner</span>
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                    <div style="display:flex; gap:10px; margin-top:16px;">
-                                        <button class="btn-cta-lime" style="flex:1; padding:10px 14px; font-size:0.8rem; border-radius:var(--radius-pill);" onclick="triggerSectionUpload('newspaper')">
-                                            <span>📤 Upload Clipping</span>
-                                        </button>
-                                        <button class="btn-secondary" style="flex:1; padding:10px 14px; font-size:0.8rem; border-radius:var(--radius-pill);" onclick="switchTab('fake-newspapers')">
-                                            <span>Full Section →</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- VECTOR 2: FAKE POSTS & SOCIAL MANIPULATION -->
-                            <div class="vector-column-card vector-card-posts">
-                                <div>
-                                    <div class="vector-header">
-                                        <div class="vector-icon-badge" style="color:var(--accent-lime);">📱</div>
-                                        <div>
-                                            <h4 class="vector-title">Fake Social Posts</h4>
-                                            <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--accent-lime); font-weight:700;">VECTOR 02 // VIRAL ALGORITHMIC RUMORS</span>
-                                        </div>
-                                    </div>
-                                    <p class="vector-desc">
-                                        Fabricated quote cards, deceptive WhatsApp forwards, urgency panic hooks ("Share before deletion!"), engineered outrage bait, and advance-fee crypto scams.
-                                    </p>
-
-                                    <div class="case-study-list">
-                                        <!-- Case 1 -->
-                                        <div class="case-study-item">
-                                            <span class="case-study-tag" style="color:var(--accent-lime);">CRYPTO PHISHING VIRAL TWEET</span>
-                                            <h5 class="case-study-title">Viral Post: Tech CEO announces $50,000 automated wallet grant for retweets</h5>
-                                            <p class="case-study-snippet">
-                                                "To celebrate our new AI model launch, I am personally distributing millions in cryptocurrency to every user who retweets this post and verifies their wallet key."
-                                            </p>
-                                            <div class="case-study-markers">
-                                                <span class="marker-pill marker-pill-lime">Impersonation Bait</span>
-                                                <span class="marker-pill marker-pill-lime">Advance-Fee Scam</span>
-                                                <span class="marker-pill marker-pill-lime">Urgent Call-To-Action</span>
-                                            </div>
-                                            <button class="btn-case-test" onclick="testCaseStudy('Viral Post: Tech CEO announces $50,000 automated wallet grant for retweets', 'To celebrate our new AI model launch, I am personally distributing millions in cryptocurrency to every single user who retweets this post and verifies their private key via external portal. Free instant wealth for everyone!', 'https://viral-wallet-giveaway.click/claim')">
-                                                <span>⚡ Test in Truth Scanner</span>
-                                            </button>
-                                        </div>
-
-                                        <!-- Case 2 -->
-                                        <div class="case-study-item">
-                                            <span class="case-study-tag" style="color:var(--accent-lime);">MESSAGING FORWARD PANIC</span>
-                                            <h5 class="case-study-title">WhatsApp Panic: Ministry secretly issues midnight freeze on bank withdrawals</h5>
-                                            <p class="case-study-snippet">
-                                                "URGENT FORWARD: Banking staff confirm all ATMs and wire transfers will be completely frozen from midnight. Withdraw all your savings immediately!"
-                                            </p>
-                                            <div class="case-study-markers">
-                                                <span class="marker-pill marker-pill-lime">Panic Inoculation</span>
-                                                <span class="marker-pill marker-pill-lime">Anonymous Bank Staff</span>
-                                                <span class="marker-pill marker-pill-lime">No Central Bank Gazette</span>
-                                            </div>
-                                            <button class="btn-case-test" onclick="testCaseStudy('URGENT FORWARD: Ministry secretly issues midnight freeze on bank withdrawals', 'Banking staff confirm all ATMs and wire transfers will be completely frozen from midnight across the nation. Withdraw all your physical savings immediately before digital currency controls lock you out! Forward to all groups!', '')">
-                                                <span>⚡ Test in Truth Scanner</span>
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                    <div style="display:flex; gap:10px; margin-top:16px;">
-                                        <button class="btn-cta-lime" style="flex:1; padding:10px 14px; font-size:0.8rem; border-radius:var(--radius-pill);" onclick="triggerSectionUpload('post')">
-                                            <span>📤 Upload Screenshot</span>
-                                        </button>
-                                        <button class="btn-secondary" style="flex:1; padding:10px 14px; font-size:0.8rem; border-radius:var(--radius-pill);" onclick="switchTab('fake-posts')">
-                                            <span>Full Section →</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- VECTOR 3: FAKE RESEARCH PAPERS & PSEUDOSCIENCE -->
-                            <div class="vector-column-card vector-card-research">
-                                <div>
-                                    <div class="vector-header">
-                                        <div class="vector-icon-badge" style="color:var(--accent-lilac);">📑</div>
-                                        <div>
-                                            <h4 class="vector-title">Fake Research Papers</h4>
-                                            <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--accent-lilac); font-weight:700;">VECTOR 03 // PREDATORY PSEUDOSCIENCE</span>
-                                        </div>
-                                    </div>
-                                    <p class="vector-desc">
-                                        Pay-to-publish predatory journals, AI-hallucinated academic citations, unverified biomedical "miracles", and fringe climate/energy claims bypassing peer-review.
-                                    </p>
-
-                                    <div class="case-study-list">
-                                        <!-- Case 1 -->
-                                        <div class="case-study-item">
-                                            <span class="case-study-tag" style="color:var(--accent-lilac);">PREDATORY JOURNAL BREAKTHROUGH</span>
-                                            <h5 class="case-study-title">Journal of Bio-Resonance: Acoustic herbal frequency cures cellular tumors in 48 hours</h5>
-                                            <p class="case-study-snippet">
-                                                "Groundbreaking clinical study published in frontier biological journal proves acoustic resonant frequencies eradicate malignant cells with zero chemotherapy."
-                                            </p>
-                                            <div class="case-study-markers">
-                                                <span class="marker-pill marker-pill-lilac">Unregistered Trial</span>
-                                                <span class="marker-pill marker-pill-lilac">Miracle Cure Buzzwords</span>
-                                                <span class="marker-pill marker-pill-lilac">Predatory Publisher (.top)</span>
-                                            </div>
-                                            <button class="btn-case-test" onclick="testCaseStudy('Journal of Bio-Resonance: Acoustic herbal frequency cures cellular tumors in 48 hours', 'Groundbreaking clinical study published in frontier biological journal proves acoustic resonant frequencies eradicate malignant cells with zero chemotherapy. Big pharma and medical boards are suppressing this miraculous cure! Download the unredacted preprint!', 'http://fringe-medical-preprints.top/resonance-study')">
-                                                <span>⚡ Test in Truth Scanner</span>
-                                            </button>
-                                        </div>
-
-                                        <!-- Case 2 -->
-                                        <div class="case-study-item">
-                                            <span class="case-study-tag" style="color:var(--accent-lilac);">PSEUDO-ACADEMIC PREPRINT</span>
-                                            <h5 class="case-study-title">Preprint Archive: Ionospheric micro-wave antennas deliberately engineer droughts</h5>
-                                            <p class="case-study-snippet">
-                                                "Classified meteorological research reveals coordinated ionospheric excitation arrays are deployed to manipulate regional rainfall patterns and induce economic crises."
-                                            </p>
-                                            <div class="case-study-markers">
-                                                <span class="marker-pill marker-pill-lilac">Conspiratorial Geoengineering</span>
-                                                <span class="marker-pill marker-pill-lilac">Hallucinated Citations</span>
-                                                <span class="marker-pill marker-pill-lilac">Fringe Physics Claims</span>
-                                            </div>
-                                            <button class="btn-case-test" onclick="testCaseStudy('Preprint Archive: Ionospheric micro-wave antennas deliberately engineer droughts', 'Classified meteorological research reveals coordinated ionospheric excitation arrays are deployed to manipulate regional rainfall patterns and induce economic droughts across targeted continents. The hidden weather control documents finally exposed!', 'http://geoengineering-leaked-archive.org/ion-pulse')">
-                                                <span>⚡ Test in Truth Scanner</span>
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                    <div style="display:flex; gap:10px; margin-top:16px;">
-                                        <button class="btn-cta-lime" style="flex:1; padding:10px 14px; font-size:0.8rem; border-radius:var(--radius-pill);" onclick="triggerSectionUpload('research')">
-                                            <span>📤 Upload Paper</span>
-                                        </button>
-                                        <button class="btn-secondary" style="flex:1; padding:10px 14px; font-size:0.8rem; border-radius:var(--radius-pill);" onclick="switchTab('fake-research')">
-                                            <span>Full Section →</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="dash-kpi-grid simple-stat-grid">
+                            <div class="dash-kpi-card"><div class="kpi-value" id="dashTotal">0</div><div class="kpi-label" data-i18n="totalAnalyses">Total scans</div></div>
+                            <div class="dash-kpi-card"><div class="kpi-value" id="dashFake">0</div><div class="kpi-label" data-i18n="fakeDetected">Likely fake</div></div>
+                            <div class="dash-kpi-card"><div class="kpi-value" id="dashReal">0</div><div class="kpi-label" data-i18n="realDetected">Likely real</div></div>
+                            <div class="dash-kpi-card"><div class="kpi-value" id="dashUnverified">0</div><div class="kpi-label" data-i18n="unverified">Unverified</div></div>
                         </div>
-                    </div>
-
-                    <!-- Editorial Intelligence Manifesto: BEYOND THE HEADLINE. INTO THE TRUTH. -->
-                    <div class="manifesto-editorial-banner">
-                        <div class="manifesto-content-col">
-                            <div class="hero-kicker-strip">
-                                <span class="badge-pill">NEXT-GEN NEWS INTELLIGENCE</span>
-                                <span class="badge-pill-lilac badge-pill">AI FORENSIC PARADIGM</span>
-                            </div>
-                            <h3 class="manifesto-headline">
-                                <span class="manifesto-line-1">BEYOND THE HEADLINE.</span>
-                                <span class="manifesto-line-2">INTO THE TRUTH.</span>
-                            </h3>
-                            <p class="manifesto-desc">
-                                A next-generation AI-driven news intelligence platform engineered to detect misinformation in an era of information overload. Combining NLP-based semantic analysis, explainable token attribution, and source credibility assessment to uncover misleading narratives and provide transparent verification insights.
-                            </p>
-                            <div class="manifesto-pills-row">
-                                <span class="manifesto-pill">
-                                    <span class="pill-dot">✦</span> NLP-Based Semantic Analysis
-                                </span>
-                                <span class="manifesto-pill">
-                                    <span class="pill-dot">✦</span> Explainable Token Attribution
-                                </span>
-                                <span class="manifesto-pill">
-                                    <span class="pill-dot">✦</span> Source Credibility Assessment
-                                </span>
-                                <span class="manifesto-pill">
-                                    <span class="pill-dot">✦</span> Transparent Verification Insights
-                                </span>
-                            </div>
+                        <div class="glass-card scan-analytics-card">
+                            <h3 data-i18n="scanDistribution">Scan result distribution</h3>
+                            <div id="scanDistributionChart" class="scan-distribution-chart" role="list" aria-live="polite"></div>
                         </div>
-                    </div>
-
-                    <!-- How It Works Flow -->
-                    <div class="section-header">
-                        <div class="badge-pill">Verification Architecture</div>
-                        <h3 class="section-title">Forensic Engine Workflow</h3>
-                        <p class="section-desc">A transparent multi-layered methodology transforming chaotic disinformation streams into auditable intelligence.</p>
-                    </div>
-
-                    <div class="flow-grid">
-                        <div class="glass-card flow-step-card">
-                            <div class="step-number">01</div>
-                            <h4 class="step-title">Multimodal Ingestion</h4>
-                            <p class="step-desc">Accepts raw dispatches, executes autonomous web scraper with anti-bot bypass, or performs in-browser optical character recognition on screenshots.</p>
-                        </div>
-                        <div class="glass-card flow-step-card" style="border-top-color:var(--accent-lilac);">
-                            <div class="step-number" style="color:rgba(167, 139, 250, 0.35);">02</div>
-                            <h4 class="step-title">122K Feature Space</h4>
-                            <p class="step-desc">Projects text into a 122,201-dimensional vocabulary, capturing n-gram semantic densities, syntactical hyperbole, and wire attribution patterns.</p>
-                        </div>
-                        <div class="glass-card flow-step-card" style="border-top-color:var(--accent-coral);">
-                            <div class="step-number" style="color:rgba(255, 107, 138, 0.35);">03</div>
-                            <h4 class="step-title">Explainable AI Attributions</h4>
-                            <p class="step-desc">Computes mathematical dot products $w_i \cdot x_i$ across model weights, isolating the exact tokens that push predictions toward Real wire or Fake hoax.</p>
-                        </div>
-                        <div class="glass-card flow-step-card" style="border-top-color:var(--text-cream);">
-                            <div class="step-number" style="color:rgba(245, 240, 232, 0.35);">04</div>
-                            <h4 class="step-title">Truth Dossier Synthesis</h4>
-                            <p class="step-desc">Generates sentence-by-sentence highlights, emotional sensationalism intensity scores, headline consistency metrics, and publisher reputation radar.</p>
-                        </div>
-                    </div>
-
-                    <!-- Footer -->
-                    <footer style="border-top:1px solid var(--border-card); padding:48px 0 24px 0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
-                        <div>
-                            <div style="font-family:var(--font-heading); font-weight:900; font-size:1.3rem; color:var(--text-cream); margin-bottom:4px;">
-                                TRUTHLENS AI
-                            </div>
-                            <p style="font-size:0.85rem; color:var(--text-muted);">
-                                Neon Editorial Intelligence Suite • NLP Forensics & Explainable AI Verification.
-                            </p>
-                            <p style="font-size:0.75rem; color:var(--text-muted); margin-top:4px;">
-                                Upgraded from foundational research by Chinta Akshaya Satya Srija.
-                            </p>
-                        </div>
-                        <div style="display:flex; gap:18px; font-family:var(--font-subheading); font-size:0.9rem;">
-                            <a href="https://github.com" target="_blank" style="color:var(--text-secondary); text-decoration:none;">GitHub</a>
-                            <a href="#about" onclick="alert('TruthLens AI is an open intelligence framework for combatting online misinformation through transparent Explainable AI.')" style="color:var(--text-secondary); text-decoration:none;">Dossier</a>
-                            <a href="#privacy" onclick="alert('TruthLens AI operates local ML inference and respects user data privacy.')" style="color:var(--text-secondary); text-decoration:none;">Privacy Policy</a>
-                            <a href="#contact" onclick="alert('Contact: newsroom@truthlens.ai')" style="color:var(--text-secondary); text-decoration:none;">Contact Newsroom</a>
-                        </div>
-                    </footer>
-                </section>
-
-                <!-- TAB 2: SMART NEWS ANALYZER -->
-                <section class="tab-content" id="tab-analyzer">
-                    <div class="section-header">
-                        <div class="badge-pill">Verification Station</div>
-                        <h3 class="section-title">Truth Scanner Terminal</h3>
-                        <p class="section-desc">Submit text, news URLs, or image screenshots to execute high-dimensional NLP classification and Explainable AI analysis.</p>
-                    </div>
-
-                    <div class="glass-card" style="margin-bottom:32px;">
-                        <p style="color:var(--text-secondary); font-size:1.05rem; margin-bottom:20px; line-height:1.6;">
-                            The Truth Scanner utilizes pre-trained regularized Logistic Regression across 122,201 linguistic dimensions. Click below to launch the ingestion console on the Editorial Feed.
-                        </p>
-                        <button class="btn-primary-analyze" onclick="switchTab('landing')">
-                            <span>Open Ingestion Console ↗</span>
-                        </button>
-                    </div>
-                </section>
-
-                <!-- TAB 3: TRUTH INTELLIGENCE REPORT -->
-                <section class="tab-content" id="tab-report">
-                    <!-- Report Header Verdict Banner -->
-                    <div class="report-header-banner banner-real" id="reportBanner">
-                        <div class="verdict-info">
-                            <div id="reportVerdictText">
-                                <span class="verdict-badge-large verdict-real">VERIFIED: LIKELY REAL NEWS</span>
-                            </div>
-                            <div>
-                                <h3 id="reportArticleTitle" style="font-family:var(--font-heading); font-size:1.45rem; font-weight:900; color:var(--text-cream); margin-bottom:4px;">
-                                    Executive Truth Dossier
-                                </h3>
-                                <div id="reportArticleMeta" style="font-size:0.88rem; color:var(--text-secondary);">
-                                    Category: Politics • Standard Journalistic Wire Syntax Verified
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="report-action-buttons">
-                            <span class="token-chip token-chip-real" id="reportRiskBadge" style="font-size:0.85rem; padding:8px 16px;">
-                                Risk Level: <strong>LOW</strong>
-                            </span>
-                            <button class="btn-secondary" onclick="copyReportSummary()" title="Copy Summary">
-                                📋 Copy
-                            </button>
-                            <button class="btn-secondary" onclick="downloadReportPDF()" title="Export Printable PDF">
-                                📄 Export PDF
-                            </button>
-                            <button class="btn-secondary" onclick="openShareModal()" title="Share Link">
-                                🔗 Share
-                            </button>
-                            <button class="btn-secondary" onclick="toggleSaveCurrentReport()" title="Bookmark Report">
-                                ★ Save
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Source Intelligence Summary Card (if URL provided) -->
-                    <div class="glass-card" id="reportSourceIntelligenceCard" style="display:none; margin-bottom:32px; border-left:4px solid var(--accent-lime);">
-                        <div style="display:flex; justify-content:space-between; align-items:center;">
-                            <div>
-                                <span class="badge-pill" style="margin-bottom:6px;">Publisher Forensics</span>
-                                <h4 style="font-family:var(--font-heading); font-size:1.25rem; font-weight:800; color:var(--text-cream);" id="reportSourceDomain">reuters.com</h4>
-                                <p style="font-size:0.9rem; color:var(--text-secondary);" id="reportSourceSummary"></p>
-                            </div>
-                            <div style="text-align:right;">
-                                <div style="font-size:2.2rem; font-weight:900; font-family:var(--font-heading); color:var(--accent-lime);" id="reportSourceTrustScore">98/100</div>
-                                <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted); font-weight:700;" id="reportSourceReputation">Very High Credibility</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Main Report Grid -->
-                    <div class="report-grid">
-                        <!-- Left Column: Credibility Gauge & Core Metrics -->
-                        <div style="display:flex; flex-direction:column; gap:26px;">
-                            <!-- Radial Credibility Meter -->
-                            <div class="glass-card">
-                                <h4 style="font-family:var(--font-heading); font-size:1.1rem; font-weight:800; color:var(--text-cream); margin-bottom:12px; text-align:center;">
-                                    Credibility Rating Meter
-                                </h4>
-                                <div class="radial-meter-container">
-                                    <div class="meter-circle-wrapper">
-                                        <svg class="meter-svg" viewBox="0 0 160 160">
-                                            <circle class="meter-bg-circle" cx="80" cy="80" r="68"></circle>
-                                            <circle class="meter-progress-circle" id="reportMeterProgress" cx="80" cy="80" r="68" style="stroke:var(--accent-lime); stroke-dashoffset: 44;"></circle>
-                                        </svg>
-                                        <div class="meter-center-text">
-                                            <div class="meter-percentage" id="reportCredibilityScore">98.6%</div>
-                                            <div class="meter-subtext">Truth Score</div>
-                                        </div>
-                                    </div>
-                                    <div style="display:flex; justify-content:space-around; width:100%; border-top:1px solid var(--border-card); padding-top:18px;">
-                                        <div>
-                                            <div style="font-size:1.4rem; font-weight:900; font-family:var(--font-mono); color:var(--accent-lime);" id="reportConfidenceScore">99.2%</div>
-                                            <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-muted); text-transform:uppercase;">ML Confidence</div>
-                                        </div>
-                                        <div>
-                                            <div style="font-size:1.4rem; font-weight:900; font-family:var(--font-mono); color:var(--accent-lilac);" id="headlineConsistencyScore">95%</div>
-                                            <div style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-muted); text-transform:uppercase;">Headline Coherence</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Emotional & Sensational Language Meter -->
-                            <div class="glass-card">
-                                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                                    <h4 style="font-family:var(--font-heading); font-size:1.05rem; font-weight:800; color:var(--text-cream);">Sensationalism Index</h4>
-                                    <span style="font-size:0.95rem; font-weight:900; font-family:var(--font-mono); color:var(--accent-lime);" id="sensationalIntensityScore">12/100</span>
-                                </div>
-                                <div style="background:rgba(245,240,232,0.06); height:10px; border-radius:5px; overflow:hidden; margin-bottom:12px;">
-                                    <div id="sensationalIntensityBar" style="background:linear-gradient(90deg, var(--accent-lime), var(--warning), var(--accent-coral)); width:12%; height:100%; transition:width 0.8s ease;"></div>
-                                </div>
-                                <div style="display:flex; justify-content:space-between; font-size:0.8rem; color:var(--text-muted); margin-bottom:14px;">
-                                    <span>Tone: <strong id="sensationalIntensityLevel" style="color:var(--text-cream);">Objective / Measured</strong></span>
-                                </div>
-                                <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; margin-bottom:8px;">Detected Triggers:</div>
-                                <div id="sensationalTriggersList" class="token-chip-container">
-                                    <span style="font-size:0.85rem; color:var(--text-muted);">None detected</span>
-                                </div>
-                            </div>
-
-                            <!-- Headline Alignment -->
-                            <div class="glass-card">
-                                <h4 style="font-family:var(--font-heading); font-size:1.05rem; font-weight:800; color:var(--text-cream); margin-bottom:8px;">Headline Coherence</h4>
-                                <div style="font-size:0.9rem; font-weight:800; color:var(--accent-lime); margin-bottom:8px;" id="headlineConsistencyRating">Strong Semantic Alignment</div>
-                                <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.6;" id="headlineConsistencyExplanation">
-                                    The headline directly reflects the core factual entities and claims present in the body text.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Right Column: Explainable AI & Forensic Breakdown -->
-                        <div style="display:flex; flex-direction:column; gap:26px;">
-                            <!-- Explainable AI (XAI) Attribution Card -->
-                            <div class="glass-card glass-card-elevated">
-                                <div class="badge-pill badge-pill-lilac">Explainable AI (XAI) Weights</div>
-                                <h4 style="font-family:var(--font-heading); font-size:1.35rem; font-weight:900; color:var(--text-cream); margin-bottom:8px;">
-                                    Vocabulary Weights Driving Decision
-                                </h4>
-                                <p style="font-size:0.92rem; color:var(--text-secondary); margin-bottom:18px;">
-                                    Mathematical dot-product token weights extracted directly from model coefficients:
-                                </p>
-
-                                <div style="margin-bottom:18px;">
-                                    <span style="font-family:var(--font-mono); font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--accent-lime); letter-spacing:0.06em;">
-                                        ● Credibility Indication Tokens (Push toward Real News):
-                                    </span>
-                                    <div class="token-chip-container" id="xaiRealTokens">
-                                        <!-- Injected via JS -->
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <span style="font-family:var(--font-mono); font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--accent-coral); letter-spacing:0.06em;">
-                                        ● Manipulation / Hoax Indication Tokens (Push toward Fake News):
-                                    </span>
-                                    <div class="token-chip-container" id="xaiFakeTokens">
-                                        <!-- Injected via JS -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Sentence-by-Sentence Forensics -->
-                            <div class="glass-card">
-                                <div class="badge-pill">Micro-Claim Forensics</div>
-                                <h4 style="font-family:var(--font-heading); font-size:1.35rem; font-weight:900; color:var(--text-cream); margin-bottom:8px;">
-                                    Sentence-by-Sentence Claim Highlighting
-                                </h4>
-                                <p style="font-size:0.92rem; color:var(--text-secondary); margin-bottom:18px;">
-                                    Granular linguistic scoring categorizing every claim against evidentiary standards:
-                                </p>
-                                <div id="sentenceForensicsContainer">
-                                    <!-- Injected via JS -->
-                                </div>
-                            </div>
-
-                            <!-- Detected Manipulation Signals & Transparent Reasons -->
-                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:22px;">
-                                <div class="glass-card">
-                                    <h4 style="font-family:var(--font-heading); font-size:1.1rem; font-weight:800; color:var(--text-cream); margin-bottom:14px;">
-                                        Detected Signals
-                                    </h4>
-                                    <ul id="manipulationSignalsContainer" style="list-style:none; padding:0; font-size:0.9rem; color:var(--text-secondary);">
-                                        <!-- Injected via JS -->
-                                    </ul>
-                                </div>
-
-                                <div class="glass-card">
-                                    <h4 style="font-family:var(--font-heading); font-size:1.1rem; font-weight:800; color:var(--text-cream); margin-bottom:14px;">
-                                        Evidence-Based Reasons
-                                    </h4>
-                                    <ul id="reasonsContainer" style="list-style:none; padding:0; font-size:0.9rem; color:var(--text-secondary);">
-                                        <!-- Injected via JS -->
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Actionable Verification Steps Checklist -->
-                            <div class="glass-card" style="border-left:4px solid var(--accent-lilac);">
-                                <h4 style="font-family:var(--font-heading); font-size:1.15rem; font-weight:800; color:var(--text-cream); margin-bottom:8px;">
-                                    Actionable Fact-Checking Protocol
-                                </h4>
-                                <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:14px;">
-                                    Investigative steps recommended before sharing or amplifying:
-                                </p>
-                                <ul id="verificationStepsContainer" style="list-style:none; padding:0; font-size:0.92rem; color:var(--text-cream);">
-                                    <!-- Injected via JS -->
-                                </ul>
-                            </div>
+                        <div class="glass-card simple-table-card">
+                            <h3 data-i18n="latestReports">Recent scans</h3>
+                            <div class="simple-table-scroll"><table class="simple-table"><thead><tr>
+                                <th data-i18n="fileNameLabel">File name</th><th data-i18n="contentTypeLabel">Content type</th><th data-i18n="scanDateLabel">Scan date</th><th data-i18n="resultLabel">Result</th><th data-i18n="viewResult">View result</th>
+                            </tr></thead><tbody id="dashRecentTable"><tr><td colspan="5">Loading...</td></tr></tbody></table></div>
                         </div>
                     </div>
                 </section>
 
-                <!-- TAB 4: SOURCE CREDIBILITY EXPLORER -->
-                <section class="tab-content" id="tab-source">
-                    <div class="section-header">
-                        <div class="badge-pill">Domain Forensics</div>
-                        <h3 class="section-title">Source Credibility Explorer</h3>
-                        <p class="section-desc">
-                            Examine domain reputation, editorial transparency, clone domain patterns, and direct links to global watchdog fact-check registries.
-                        </p>
+                <!-- TAB 1: FAKE ARTICLES -->
+                <section class="tab-content" id="tab-articles">
+                    <div class="section-header"><h2 class="section-title" data-i18n="articles">Fake Articles</h2></div>
+                    <div id="articleInputMethods" class="simple-scan-panel article-input-grid">
+                        <article class="glass-card article-method-card">
+                            <h3 class="article-method-title" data-i18n="uploadArticleButton">Upload Article</h3>
+                            <input type="file" id="articleFileInput" accept=".pdf,.doc,.docx,.txt,.html,.htm,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain,text/html" hidden>
+                            <div class="simple-upload-picker" id="articleFileDropZone" tabindex="0" role="button" aria-controls="articleFileInput">
+                                <button class="btn-primary-analyze" type="button" onclick="document.getElementById('articleFileInput').click()" data-i18n="uploadArticleButton">Upload Article</button>
+                                <p class="simple-supported-types">PDF, DOC, DOCX, TXT, HTML</p>
+                            </div>
+                            <div id="articleFileDetails" class="simple-file-details" hidden aria-live="polite">
+                                <strong id="articleFileName"></strong><span id="articleFileSize"></span><span id="articleFileStatus"></span>
+                            </div>
+                            <textarea id="uploadedArticleText" hidden></textarea>
+                            <button class="btn-primary-analyze" id="analyzeUploadedArticleBtn" type="button" onclick="runAnalysis('upload')" disabled data-i18n="scanUploadedArticle">Scan Uploaded Article</button>
+                        </article>
+                        <article class="glass-card article-method-card">
+                            <h3 class="article-method-title" id="pasteArticleTitle" data-i18n="pasteText">Paste Article Text</h3>
+                            <textarea id="pastedArticleText" class="custom-input custom-textarea" rows="10" aria-labelledby="pasteArticleTitle" aria-required="true" data-i18n-placeholder="articleTextPlaceholder" placeholder="Paste the complete article text here..."></textarea>
+                            <button class="btn-primary-analyze" id="analyzePastedArticleBtn" type="button" onclick="runAnalysis('paste')" disabled data-i18n="scanPastedArticle">Scan Pasted Article</button>
+                        </article>
                     </div>
-
-                    <div class="glass-card source-search-box">
-                        <input type="text" id="sourceDomainInput" class="custom-input" placeholder="Enter publisher domain (e.g. reuters.com, bbc.com, infowars.com, theonion.com)...">
-                        <button class="btn-primary-analyze" onclick="inspectSource()">
-                            <span>Inspect Domain ↗</span>
-                        </button>
-                    </div>
-
-                    <div id="sourceExplorerResults">
-                        <div class="glass-card" style="text-align:center; padding:44px;">
-                            <p style="color:var(--text-muted); font-size:1rem;">
-                                Enter any publisher domain above to audit ownership, bias ratings, historical trust index, and independent watchdog dossiers.
-                            </p>
+                    <section id="articleResults" class="glass-card simple-result-card" hidden aria-live="polite">
+                        <p id="articleResultFileName" class="simple-result-filename"></p>
+                        <h3 id="articleResultVerdict" class="simple-result-verdict"></h3>
+                        <p id="articleResultConfidence" class="simple-result-confidence" hidden></p>
+                        <p id="articleResultExplanation" class="simple-result-explanation"></p>
+                        <div id="articleFactCheckEvidence" class="article-fact-check-evidence" hidden>
+                            <strong id="articleFactCheckSource"></strong>
+                            <blockquote id="articleFactCheckExcerpt"></blockquote>
+                            <a id="articleFactCheckLink" target="_blank" rel="noopener noreferrer"></a>
                         </div>
-                    </div>
+                        <section id="articleAnalysisEnhancements" class="article-analysis-enhancements" hidden>
+                            <div class="article-summary-card">
+                                <h4 data-i18n="analysisSummary">Analysis summary</h4>
+                                <dl class="article-analysis-summary-grid">
+                                    <div><dt data-i18n="detectedLanguage">Detected language</dt><dd id="articleSummaryLanguage"></dd></div>
+                                    <div><dt data-i18n="extractedTextLength">Text length</dt><dd id="articleSummaryLength"></dd></div>
+                                    <div><dt data-i18n="suspiciousTermsDetected">Suspicious terms</dt><dd id="articleSummaryTermCount"></dd></div>
+                                    <div><dt data-i18n="analysisStatus">Analysis status</dt><dd id="articleSummaryStatus"></dd></div>
+                                    <div><dt data-i18n="modelConfidence">Model confidence</dt><dd id="articleSummaryConfidence"></dd></div>
+                                </dl>
+                            </div>
+                            <div class="article-suspicious-card">
+                                <h4 data-i18n="suspiciousHighlights">Potentially suspicious wording</h4>
+                                <p class="article-suspicious-disclaimer" data-i18n="suspiciousCuesDisclaimer">These wording cues are separate from the model prediction and do not establish that a claim is false.</p>
+                                <ul id="articleSuspiciousTerms" class="article-suspicious-terms"></ul>
+                                <h4 data-i18n="extractedArticleText">Extracted article text</h4>
+                                <div id="articleHighlightedText" class="article-highlighted-text" dir="auto" tabindex="0"></div>
+                            </div>
+                        </section>
+                        <button class="btn-secondary" type="button" onclick="startAnotherArticle()" data-i18n="scanAgain">Scan Another Article</button>
+                    </section>
                 </section>
 
-                <!-- TAB 5: AI NEWS EXPLORER -->
-                <section class="tab-content" id="tab-explorer">
-                    <div class="section-header">
-                        <div class="badge-pill">Real-Time Intelligence</div>
-                        <h3 class="section-title">AI News Beat</h3>
-                        <p class="section-desc">Explore recently verified dispatches, trending fact-checks, and benchmark articles across major societal beats.</p>
-                    </div>
-
-                    <!-- Category Filter Tabs -->
-                    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:28px;">
-                        <button class="chip-btn cat-pill-btn active" data-cat="All" onclick="filterCategory('All')">All News</button>
-                        <button class="chip-btn cat-pill-btn" data-cat="Technology" onclick="filterCategory('Technology')">Technology</button>
-                        <button class="chip-btn cat-pill-btn" data-cat="Politics" onclick="filterCategory('Politics')">Politics</button>
-                        <button class="chip-btn cat-pill-btn" data-cat="Health" onclick="filterCategory('Health')">Health</button>
-                        <button class="chip-btn cat-pill-btn" data-cat="Business" onclick="filterCategory('Business')">Business</button>
-                        <button class="chip-btn cat-pill-btn" data-cat="Education" onclick="filterCategory('Education')">Education</button>
-                        <button class="chip-btn cat-pill-btn" data-cat="World" onclick="filterCategory('World')">World</button>
-                    </div>
-
-                    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(350px, 1fr)); gap:26px;" id="trendingNewsContainer">
-                        <!-- Populated via loadTrendingNews() -->
-                    </div>
-                </section>
-
-                <!-- =======================================================
-                     TAB 6: FAKE NEWSPAPERS & CLONED TABLOIDS
-                     ======================================================= -->
-                <section class="tab-content" id="tab-fake-newspapers">
-                    <div class="section-header">
-                        <div class="badge-pill badge-pill-coral">Disinformation Anatomy</div>
-                        <h3 class="section-title">Fake Newspapers & Cloned Tabloids</h3>
-                        <p class="section-desc">
-                            Investigating cloned broadsheets, synthetic press agencies, spoofed domain mastheads, and fabricated political leaks designed to emulate legacy journalistic prestige.
-                        </p>
-                    </div>
-
-                    <!-- Upload Banner for Newspaper Section -->
-                    <div class="section-upload-banner">
-                        <div class="upload-banner-icon" style="color:var(--accent-coral);">📰</div>
-                        <div class="upload-banner-content">
-                            <h4 class="upload-banner-title">Upload Newspaper Clipping or Scanned Print Page</h4>
-                            <p class="upload-banner-desc">Upload a photograph or PDF of a newspaper article, cloned tabloid clipping, or front page to extract text via OCR and run 122K NLP forensic verification.</p>
-                        </div>
-                        <div class="upload-banner-action">
-                            <input type="file" id="newspaperFileInput" accept="image/*,.pdf,.txt" style="display:none;" onchange="if(this.files[0]) handleSectionFileUpload(this.files[0], 'newspaper')">
-                            <button class="btn-cta-lime" onclick="triggerSectionUpload('newspaper')" style="white-space:nowrap; padding:12px 24px; font-size:0.88rem;">
-                                <span>📤 Upload Newspaper Clipping ↗</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Forensic Signals Grid -->
-                    <div class="forensic-taxonomy-grid">
-                        <div class="taxonomy-metric-card" style="border-top:3px solid var(--accent-coral);">
-                            <span class="taxonomy-badge" style="color:var(--accent-coral);">SIGNAL 01</span>
-                            <h4>Spoofed Mastheads & Domains</h4>
-                            <p>Cloning brand typography of legacy papers like The Times or Tribune using .biz, .xyz, or typo-squatted URLs to bypass civilian scrutiny.</p>
-                        </div>
-                        <div class="taxonomy-metric-card" style="border-top:3px solid var(--accent-coral);">
-                            <span class="taxonomy-badge" style="color:var(--accent-coral);">SIGNAL 02</span>
-                            <h4>Ghost Editorial Bureaus</h4>
-                            <p>Fabricated bylines attributing articles to non-existent correspondents with AI-generated avatars and unregistered press bureau credentials.</p>
-                        </div>
-                        <div class="taxonomy-metric-card" style="border-top:3px solid var(--accent-coral);">
-                            <span class="taxonomy-badge" style="color:var(--accent-coral);">SIGNAL 03</span>
-                            <h4>Manufactured Panic & Outrage</h4>
-                            <p>High emotional hyperbole ("BOMBSHELL LEAK", "TREASON AT MIDNIGHT") paired with unverifiable single-source anonymous hearsay.</p>
-                        </div>
-                    </div>
-
-                    <!-- Interactive Broadside Anatomy Card -->
-                    <div class="broadside-anatomy-card">
-                        <div class="broadside-header">
-                            <div class="broadside-masthead">
-                                <span class="paper-name">THE DAILY CONTINENTAL CHRONICLE</span>
-                                <span class="paper-meta">EST. 1904 • SPECIAL MIDNIGHT EDITION • VERIFIED DOMAIN: chronicle-breaking.xyz (⚠️ SPOOF DETECTED)</span>
-                            </div>
-                            <div class="paper-flag-chip">🚨 SUSPICIOUS CLONE</div>
-                        </div>
-                        <div class="broadside-body">
-                            <div class="broadside-headline">
-                                MINISTRY SECRETLY RATIFIES CONFIDENTIAL TREATY SURRENDERING REGIONAL GRID CONTROL
-                            </div>
-                            <p class="broadside-excerpt">
-                                "GENEVA — According to highly placed anonymous sources within the emergency energy council who spoke on condition of absolute anonymity, European ministers signed a classified agreement at 2:00 AM surrendering public grid sovereignty without parliamentary debate..."
-                            </p>
-                            <div class="broadside-indicators">
-                                <span class="marker-pill">⚠️ Anonymous Council Source</span>
-                                <span class="marker-pill">⚠️ Sensational Panic Framing</span>
-                                <span class="marker-pill">⚠️ Predatory TLD (.xyz)</span>
-                                <span class="marker-pill">⚠️ Unverified Wire Byline</span>
-                            </div>
-                        </div>
-                        <div class="broadside-footer">
-                            <button class="btn-cta-lime" style="padding:12px 28px; font-size:0.85rem;" onclick="testCaseStudy('THE DAILY CONTINENTAL CHRONICLE: Ministry Secretly Ratifies Confidential Treaty Surrendering Regional Grid Control', 'According to highly placed anonymous sources within the emergency energy council who spoke on condition of absolute anonymity, European ministers signed a classified agreement at 2:00 AM surrendering public grid sovereignty without parliamentary debate. State broadcasters have been issued a gag order. Share this dispatch before it is erased!', 'http://chronicle-breaking.xyz/grid-treaty')">
-                                <span>⚡ Test This Cloned Newspaper in Truth Scanner</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Archived Case Studies Grid -->
-                    <div class="section-subheading" style="margin:40px 0 18px 0;">
-                        <h4 style="font-family:var(--font-heading); font-size:1.35rem; color:var(--text-cream); font-weight:800;">Archived Newspaper Disinformation Case Studies</h4>
-                        <span style="font-family:var(--font-mono); font-size:0.82rem; color:var(--text-muted);">One-click execution into the 122K NLP feature vectorizer</span>
-                    </div>
-
-                    <div class="case-studies-grid">
-                        <!-- Case 1 -->
-                        <div class="case-study-card-enhanced" style="border-top:3px solid var(--accent-coral);">
-                            <div>
-                                <span class="case-tag" style="color:var(--accent-coral);">CLONED BROADSHEET // POLITICS</span>
-                                <h5 class="case-title">The European Chronicle: Secret midnight pact cedes municipal mineral rights</h5>
-                                <p class="case-snippet">"Anonymous cabinet whistleblowers confirmed a classified midnight summit where ministers secretly agreed to surrender municipal mineral rights without legislative vote."</p>
-                                <div class="case-markers">
-                                    <span class="marker-pill">Spoofed TLD (.biz)</span>
-                                    <span class="marker-pill">Anonymous Whistleblower</span>
-                                    <span class="marker-pill">Sensational Hysteria</span>
-                                </div>
-                            </div>
-                            <button class="btn-case-test" onclick="testCaseStudy('The European Chronicle: Secret midnight pact cedes municipal mineral rights', 'Anonymous cabinet whistleblowers confirmed a classified midnight summit where ministers secretly agreed to surrender municipal mineral rights without legislative vote. Leaked documents prove state censors are scrubbing all public records! Watch before deletion!', 'http://european-chronicle.biz/classified-leak')">
-                                <span>⚡ Test in Truth Scanner</span>
-                            </button>
-                        </div>
-
-                        <!-- Case 2 -->
-                        <div class="case-study-card-enhanced" style="border-top:3px solid var(--accent-coral);">
-                            <div>
-                                <span class="case-tag" style="color:var(--accent-coral);">TABLOID SCANDAL // WORLD</span>
-                                <h5 class="case-title">National Inquiry Tribune: Secret royal memo confirms hidden succession crisis</h5>
-                                <p class="case-snippet">"BREAKING BOMBSHELL: High-level palace sources leak explosive audio proving monarch has privately abdicated royal duties amid family revolt."</p>
-                                <div class="case-markers">
-                                    <span class="marker-pill">Clickbait Shouting</span>
-                                    <span class="marker-pill">Zero Palace Attribution</span>
-                                    <span class="marker-pill">Fabricated Audio Leak</span>
-                                </div>
-                            </div>
-                            <button class="btn-case-test" onclick="testCaseStudy('BREAKING BOMBSHELL: Secret royal memo confirms hidden succession crisis', 'High-level palace sources leak explosive audio proving monarch has privately abdicated royal duties amid family revolt. Mainstream media is ordered into silence. Share this shocking report before it is wiped!', 'http://national-inquiry-breaking.xyz/royal-crisis')">
-                                <span>⚡ Test in Truth Scanner</span>
-                            </button>
-                        </div>
-
-                        <!-- Case 3 -->
-                        <div class="case-study-card-enhanced" style="border-top:3px solid var(--accent-coral);">
-                            <div>
-                                <span class="case-tag" style="color:var(--accent-coral);">REGIONAL PANIC // HEALTH</span>
-                                <h5 class="case-title">Metropolis Herald: City reservoirs secretly poisoned by industrial chemical runoff</h5>
-                                <p class="case-snippet">"Whistleblower lab technicians leak urgent reports showing municipal drinking water contains toxic fluorinated compounds 10,000x above legal limits. Officials ordered total media blackout."</p>
-                                <div class="case-markers">
-                                    <span class="marker-pill">Water Supply Panic</span>
-                                    <span class="marker-pill">Fictitious Lab Report</span>
-                                    <span class="marker-pill">Media Blackout Trope</span>
-                                </div>
-                            </div>
-                            <button class="btn-case-test" onclick="testCaseStudy('Metropolis Herald: City reservoirs secretly poisoned by industrial chemical runoff', 'Whistleblower lab technicians leak urgent reports showing municipal drinking water contains toxic fluorinated compounds 10,000x above legal limits. Officials ordered a total media blackout to prevent mass riots. Boil your water immediately!', 'http://metropolis-herald-daily.news/toxic-water')">
-                                <span>⚡ Test in Truth Scanner</span>
-                            </button>
-                        </div>
-
-                        <!-- Case 4 -->
-                        <div class="case-study-card-enhanced" style="border-top:3px solid var(--accent-coral);">
-                            <div>
-                                <span class="case-tag" style="color:var(--accent-coral);">FINANCIAL COUP // BUSINESS</span>
-                                <h5 class="case-title">Continental Gazette: Central bank governor arrested in dawn private jet raid</h5>
-                                <p class="case-snippet">"High-ranking federal police raided a private jet at dawn, arresting the central reserve bank chief on charges of secretly transferring gold bullion assets to foreign vaults."</p>
-                                <div class="case-markers">
-                                    <span class="marker-pill">Fabricated Arrest</span>
-                                    <span class="marker-pill">No Wire Confirmation</span>
-                                    <span class="marker-pill">Market Manipulation</span>
-                                </div>
-                            </div>
-                            <button class="btn-case-test" onclick="testCaseStudy('Continental Gazette: Central bank governor arrested in dawn private jet raid', 'High-ranking federal police raided a private jet at dawn, arresting the central reserve bank chief on charges of secretly transferring gold bullion assets to foreign offshore vaults. Emergency currency devaluation expected today!', 'http://continental-financial-gazette.click/bank-arrest')">
-                                <span>⚡ Test in Truth Scanner</span>
-                            </button>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- =======================================================
-                     TAB 7: FAKE SOCIAL POSTS & ALGORITHMIC OUTRAGE
-                     ======================================================= -->
                 <section class="tab-content" id="tab-fake-posts">
-                    <div class="section-header">
-                        <div class="badge-pill badge-pill-lime">Disinformation Anatomy</div>
-                        <h3 class="section-title">Fake Social Posts & Algorithmic Outrage</h3>
-                        <p class="section-desc">
-                            Dissecting viral algorithmic deceptions, spoofed executive social media dispatches, WhatsApp forward panic loops, and deceptive engagement scams engineered to trigger emotional reposts.
-                        </p>
+                    <div class="section-header"><h2 class="section-title" data-i18n="posts">Fake Posts</h2></div>
+                    <div id="postInputPanel" class="glass-card simple-upload-card">
+                        <input type="file" id="postFileInput" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" hidden onchange="if(this.files[0]) selectPostScreenshot(this.files[0])">
+                        <button class="btn-primary-analyze" type="button" onclick="document.getElementById('postFileInput').click()" data-i18n="uploadPostScreenshot">Upload Post Screenshot</button>
+                        <p class="simple-supported-types">JPG, JPEG, PNG, WEBP</p>
+                        <p id="postFileName" class="simple-file-name" hidden></p>
+                        <div id="postScreenshotPreview" class="simple-image-preview"></div>
+                        <button class="btn-primary-analyze" id="scanPostButton" type="button" onclick="scanPostScreenshot()" disabled data-i18n="scanPost">Scan Post</button>
                     </div>
-
-                    <!-- Upload Banner for Social Posts Section -->
-                    <div class="section-upload-banner">
-                        <div class="upload-banner-icon" style="color:var(--accent-lime);">📱</div>
-                        <div class="upload-banner-content">
-                            <h4 class="upload-banner-title">Upload Social Media Screenshot or Forwarded Chat</h4>
-                            <p class="upload-banner-desc">Inspect deceptive Tweet/X screenshots, forwarded WhatsApp messages, TikTok scripts, or Instagram quote cards for viral manipulation markers.</p>
-                        </div>
-                        <div class="upload-banner-action">
-                            <input type="file" id="postFileInput" accept="image/*,.txt" style="display:none;" onchange="if(this.files[0]) handleSectionFileUpload(this.files[0], 'post')">
-                            <button class="btn-cta-lime" onclick="triggerSectionUpload('post')" style="white-space:nowrap; padding:12px 24px; font-size:0.88rem;">
-                                <span>📤 Upload Social Screenshot ↗</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Forensic Signals Grid -->
-                    <div class="forensic-taxonomy-grid">
-                        <div class="taxonomy-metric-card" style="border-top:3px solid var(--accent-lime);">
-                            <span class="taxonomy-badge" style="color:var(--accent-lime);">SIGNAL 01</span>
-                            <h4>Spoofed Verification Ticks</h4>
-                            <p>Impersonating celebrity executives or federal agencies using visually indistinguishable Unicode handles and purchased blue badges.</p>
-                        </div>
-                        <div class="taxonomy-metric-card" style="border-top:3px solid var(--accent-lime);">
-                            <span class="taxonomy-badge" style="color:var(--accent-lime);">SIGNAL 02</span>
-                            <h4>Artificial Urgency & FOMO</h4>
-                            <p>Coercive call-to-actions ("Forward before this is taken down!", "Withdraw cash today!") designed to short-circuit critical evaluation.</p>
-                        </div>
-                        <div class="taxonomy-metric-card" style="border-top:3px solid var(--accent-lime);">
-                            <span class="taxonomy-badge" style="color:var(--accent-lime);">SIGNAL 03</span>
-                            <h4>Financial & Phishing Traps</h4>
-                            <p>Fabricated crypto airdrops, fake stimulus relief payments, or phishing portals directing users to compromised verification domains.</p>
-                        </div>
-                    </div>
-
-                    <!-- Interactive Social Post Mock Card -->
-                    <div class="social-post-mock-card">
-                        <div class="social-post-header">
-                            <div class="social-avatar">⚡</div>
-                            <div class="social-meta">
-                                <div class="social-name">
-                                    <span>Elon Tech Titan</span>
-                                    <span class="fake-check-badge">✓ (SPOOF)</span>
-                                </div>
-                                <div class="social-handle">@TechTitanOfficial_Promo • 14m ago • 48.2K Reposts</div>
-                            </div>
-                            <div class="social-risk-tag">🚨 94% PHISHING HOAX</div>
-                        </div>
-                        <div class="social-post-body">
-                            "To celebrate our breakthrough multimodal neural network deployment, our foundation is airdropping <strong>$10,000,000 in Bitcoin & Ethereum</strong> to everyone who reposts this message within the next 30 minutes! Connect your Web3 wallet address at the verification link below to claim immediately: <code>hxxp://wallet-drop-neural.click/claim</code>"
-                        </div>
-                        <div class="social-post-metrics">
-                            <span>🔁 48.2K Reposts</span>
-                            <span>❤️ 124K Likes</span>
-                            <span>💬 12.9K Comments</span>
-                            <span class="social-marker-warn">⚠️ Financial Advance-Fee Trap</span>
-                        </div>
-                        <div class="social-post-action">
-                            <button class="btn-cta-lime" style="padding:12px 28px; font-size:0.85rem;" onclick="testCaseStudy('Viral Post: Tech CEO announces $50,000 automated wallet grant for retweets', 'To celebrate our new AI model launch, I am personally distributing millions in cryptocurrency to every single user who retweets this post and verifies their private key via external portal. Free instant wealth for everyone!', 'https://viral-wallet-giveaway.click/claim')">
-                                <span>⚡ Test This Social Post in Truth Scanner</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Archived Case Studies Grid -->
-                    <div class="section-subheading" style="margin:40px 0 18px 0;">
-                        <h4 style="font-family:var(--font-heading); font-size:1.35rem; color:var(--text-cream); font-weight:800;">Archived Social Media Deception Case Studies</h4>
-                        <span style="font-family:var(--font-mono); font-size:0.82rem; color:var(--text-muted);">Real-world patterns of forwarded panic dispatches and algorithmic manipulation</span>
-                    </div>
-
-                    <div class="case-studies-grid">
-                        <!-- Case 1 -->
-                        <div class="case-study-card-enhanced" style="border-top:3px solid var(--accent-lime);">
-                            <div>
-                                <span class="case-tag" style="color:var(--accent-lime);">CRYPTO VIRAL HOAX // TWITTER</span>
-                                <h5 class="case-title">Viral Post: Tech CEO announces $50,000 automated wallet grant for retweets</h5>
-                                <p class="case-snippet">"To celebrate our new AI model launch, I am personally distributing millions in cryptocurrency to every user who retweets this post and verifies their wallet key."</p>
-                                <div class="case-markers">
-                                    <span class="marker-pill marker-pill-lime">Impersonation Bait</span>
-                                    <span class="marker-pill marker-pill-lime">Advance-Fee Scam</span>
-                                    <span class="marker-pill marker-pill-lime">Urgent Call-To-Action</span>
-                                </div>
-                            </div>
-                            <button class="btn-case-test" onclick="testCaseStudy('Viral Post: Tech CEO announces $50,000 automated wallet grant for retweets', 'To celebrate our new AI model launch, I am personally distributing millions in cryptocurrency to every single user who retweets this post and verifies their private key via external portal. Free instant wealth for everyone!', 'https://viral-wallet-giveaway.click/claim')">
-                                <span>⚡ Test in Truth Scanner</span>
-                            </button>
-                        </div>
-
-                        <!-- Case 2 -->
-                        <div class="case-study-card-enhanced" style="border-top:3px solid var(--accent-lime);">
-                            <div>
-                                <span class="case-tag" style="color:var(--accent-lime);">MESSAGING PANIC // WHATSAPP</span>
-                                <h5 class="case-title">WhatsApp Forward: Ministry secretly issues midnight freeze on bank withdrawals</h5>
-                                <p class="case-snippet">"URGENT FORWARD: Banking staff confirm all ATMs and wire transfers will be completely frozen from midnight across the nation. Withdraw all your savings immediately!"</p>
-                                <div class="case-markers">
-                                    <span class="marker-pill marker-pill-lime">Panic Inoculation</span>
-                                    <span class="marker-pill marker-pill-lime">Anonymous Bank Staff</span>
-                                    <span class="marker-pill marker-pill-lime">No Central Bank Gazette</span>
-                                </div>
-                            </div>
-                            <button class="btn-case-test" onclick="testCaseStudy('URGENT FORWARD: Ministry secretly issues midnight freeze on bank withdrawals', 'Banking staff confirm all ATMs and wire transfers will be completely frozen from midnight across the nation. Withdraw all your physical savings immediately before digital currency controls lock you out! Forward to all groups!', '')">
-                                <span>⚡ Test in Truth Scanner</span>
-                            </button>
-                        </div>
-
-                        <!-- Case 3 -->
-                        <div class="case-study-card-enhanced" style="border-top:3px solid var(--accent-lime);">
-                            <div>
-                                <span class="case-tag" style="color:var(--accent-lime);">PSEUDOMEDICAL QUOTE CARD // INSTAGRAM</span>
-                                <h5 class="case-title">Instagram Quote: Oxford virologist claims boiled lemon peels neutralize infectious viruses</h5>
-                                <p class="case-snippet">"VIRAL REMEDY: Oxford-trained senior virologist reveals that drinking boiled organic lemon peel essence immediately destroys viral lipid shells within 12 hours. Big pharma is trying to censor this!"</p>
-                                <div class="case-markers">
-                                    <span class="marker-pill marker-pill-lime">Miracle Remedy Hook</span>
-                                    <span class="marker-pill marker-pill-lime">Conspiracy Framing</span>
-                                    <span class="marker-pill marker-pill-lime">Zero Peer Review</span>
-                                </div>
-                            </div>
-                            <button class="btn-case-test" onclick="testCaseStudy('Instagram Quote: Oxford virologist claims boiled lemon peels neutralize infectious viruses', 'Oxford-trained senior virologist reveals that drinking boiled organic lemon peel essence immediately destroys viral lipid shells within 12 hours. Pharmaceutical companies are lobbying to ban this secret guide! Drink 3 glasses a day for total protection!', '')">
-                                <span>⚡ Test in Truth Scanner</span>
-                            </button>
-                        </div>
-
-                        <!-- Case 4 -->
-                        <div class="case-study-card-enhanced" style="border-top:3px solid var(--accent-lime);">
-                            <div>
-                                <span class="case-tag" style="color:var(--accent-lime);">CIVIL PANIC // TELEGRAM</span>
-                                <h5 class="case-title">Telegram Alert: Mandatory nationwide 6:00 PM curfew declared by defense forces</h5>
-                                <p class="case-snippet">"EMERGENCY DIRECTIVE: High-alert security circular orders total restriction of civilian movement after 6:00 PM tonight. Armed convoys deployed at municipal borders. Stockpile food now!"</p>
-                                <div class="case-markers">
-                                    <span class="marker-pill marker-pill-lime">Unsigned Emergency Order</span>
-                                    <span class="marker-pill marker-pill-lime">Artificial Panic</span>
-                                    <span class="marker-pill marker-pill-lime">Hoax Mobilization</span>
-                                </div>
-                            </div>
-                            <button class="btn-case-test" onclick="testCaseStudy('Telegram Alert: Mandatory nationwide 6:00 PM curfew declared by defense forces', 'EMERGENCY SECURITY DIRECTIVE: High-alert security circular orders total restriction of civilian movement after 6:00 PM tonight across all municipal districts. Armed convoys deployed at borders. Stockpile emergency food and water now before internet shutdown!', '')">
-                                <span>⚡ Test in Truth Scanner</span>
-                            </button>
-                        </div>
-                    </div>
+                    <section id="postScanResults" class="glass-card simple-result-card" hidden aria-live="polite">
+                        <p id="postResultFileName" class="simple-result-filename"></p>
+                        <h3 id="postResultVerdict" class="simple-result-verdict"></h3>
+                        <p id="postResultConfidence" class="simple-result-confidence" hidden></p>
+                        <p id="postResultExplanation" class="simple-result-explanation"></p>
+                        <button class="btn-secondary" type="button" onclick="scanAnotherPost()" data-i18n="scanAgain">Scan Another Post</button>
+                    </section>
                 </section>
 
-                <!-- =======================================================
-                     TAB 8: FAKE RESEARCH PAPERS & PREDATORY PSEUDOSCIENCE
-                     ======================================================= -->
-                <section class="tab-content" id="tab-fake-research">
-                    <div class="section-header">
-                        <div class="badge-pill badge-pill-lilac">Disinformation Anatomy</div>
-                        <h3 class="section-title">Fake Research Papers & Predatory Pseudoscience</h3>
-                        <p class="section-desc">
-                            Exposing fraudulent preprints, pay-to-publish predatory journals, AI-hallucinated academic citations, and unverified miracle clinical claims masquerading under scholarly jargon.
-                        </p>
+                <section class="tab-content" id="tab-fake-images">
+                    <div class="section-header"><h2 class="section-title" data-i18n="images">Fake Images</h2></div>
+                    <div id="imageInputPanel" class="glass-card simple-upload-card">
+                        <input type="file" id="imageScannerFileInput" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" hidden onchange="if(this.files[0]) selectImageForScan(this.files[0])">
+                        <button class="btn-primary-analyze" type="button" onclick="document.getElementById('imageScannerFileInput').click()" data-i18n="uploadImageButton">Upload Image</button>
+                        <p class="simple-supported-types">JPG, JPEG, PNG, WEBP</p>
+                        <p id="imageFileName" class="simple-file-name" hidden></p>
+                        <div id="imageScannerPreview" class="simple-image-preview"></div>
+                        <button class="btn-primary-analyze" id="scanImageButton" type="button" onclick="scanImageAuthenticity()" disabled data-i18n="scanImage">Scan Image</button>
                     </div>
+                    <section id="imageScanResults" class="glass-card simple-result-card" hidden aria-live="polite">
+                        <p id="imageResultFileName" class="simple-result-filename"></p>
+                        <h3 id="imageResultVerdict" class="simple-result-verdict verdict-verify"></h3>
+                        <p id="imageResultExplanation" class="simple-result-explanation"></p>
+                        <button class="btn-secondary" type="button" onclick="scanAnotherImage()" data-i18n="scanAgain">Scan Another Image</button>
+                    </section>
+                </section>
 
-                    <!-- Upload Banner for Research Papers Section -->
-                    <div class="section-upload-banner">
-                        <div class="upload-banner-icon" style="color:var(--accent-lilac);">📑</div>
-                        <div class="upload-banner-content">
-                            <h4 class="upload-banner-title">Upload Research Paper, Preprint PDF, or Abstract Screenshot</h4>
-                            <p class="upload-banner-desc">Upload scientific preprints, academic PDFs, or paper abstracts to audit predatory journal markers, citation hallucinations, and pseudo-physics claims.</p>
-                        </div>
-                        <div class="upload-banner-action">
-                            <input type="file" id="researchFileInput" accept="image/*,.pdf,.txt" style="display:none;" onchange="if(this.files[0]) handleSectionFileUpload(this.files[0], 'research')">
-                            <button class="btn-cta-lime" onclick="triggerSectionUpload('research')" style="white-space:nowrap; padding:12px 24px; font-size:0.88rem;">
-                                <span>📤 Upload Research Paper ↗</span>
-                            </button>
-                        </div>
+                <section class="tab-content" id="tab-history">
+                    <div class="section-header"><h2 class="section-title" data-i18n="history">History</h2></div>
+                    <div id="historyResultDetails" class="glass-card simple-history-detail" hidden aria-live="polite">
+                        <p id="historyDetailFileName" class="simple-result-filename"></p>
+                        <h3 id="historyDetailVerdict" class="simple-result-verdict"></h3>
+                        <p id="historyDetailExplanation" class="simple-result-explanation"></p>
+                        <button class="btn-secondary" type="button" onclick="closeHistoryDetail()" data-i18n="close">Close</button>
                     </div>
-
-                    <!-- Forensic Signals Grid -->
-                    <div class="forensic-taxonomy-grid">
-                        <div class="taxonomy-metric-card" style="border-top:3px solid var(--accent-lilac);">
-                            <span class="taxonomy-badge" style="color:var(--accent-lilac);">SIGNAL 01</span>
-                            <h4>Pay-to-Publish Predatory TLDs</h4>
-                            <p>Fly-by-night journals operating on .top, .space, or .cc domains that charge submission fees with zero genuine editorial peer review.</p>
-                        </div>
-                        <div class="taxonomy-metric-card" style="border-top:3px solid var(--accent-lilac);">
-                            <span class="taxonomy-badge" style="color:var(--accent-lilac);">SIGNAL 02</span>
-                            <h4>Hallucinated Citations & DOIs</h4>
-                            <p>Fabricated footnotes referencing prestigious institutions like MIT or Harvard that do not exist in PubMed or CrossRef indexing records.</p>
-                        </div>
-                        <div class="taxonomy-metric-card" style="border-top:3px solid var(--accent-lilac);">
-                            <span class="taxonomy-badge" style="color:var(--accent-lilac);">SIGNAL 03</span>
-                            <h4>Sensational Miracle Therapeutics</h4>
-                            <p>Unregistered clinical trials claiming 100% cure rates for incurable ailments using herbal frequencies, crystals, or fringe physics.</p>
-                        </div>
-                    </div>
-
-                    <!-- Interactive Research Paper Abstract Anatomy -->
-                    <div class="academic-paper-mock-card">
-                        <div class="paper-journal-tag">
-                            <span>JOURNAL OF BIO-ACOUSTIC RESONANCE • OPEN PREPRINT ARCHIVE • DOI: 10.9999/fake-paper-10492</span>
-                            <span class="paper-flag-badge">⚠️ UNINDEXED PREPRINT</span>
-                        </div>
-                        <h4 class="paper-mock-title">
-                            Targeted Ultrasonic Harmonic Resonance Eradicates Malignant Carcinoma Cells in 48 Hours: A Double-Blind Breakthrough Trial
-                        </h4>
-                        <div class="paper-mock-authors">
-                            Dr. Evelyn Vance, Dr. Arthur Sterling — Institute of Frontier Biomorphic Physics (Zurich)
-                        </div>
-                        <div class="paper-mock-abstract">
-                            <strong>ABSTRACT:</strong> Conventional oncology relies on toxic chemotherapeutic protocols. In this paper, we demonstrate that a calibrated 432Hz ultrasonic acoustic beam dismantles malignant cell membranes within 48 hours without harming healthy tissue. Clinical evaluations across 150 terminal patients achieved a 100% complete remission rate. All pharmaceutical industry oversight was excluded to prevent regulatory suppression.
-                        </div>
-                        <div class="paper-mock-markers">
-                            <span class="marker-pill marker-pill-lilac">⚠️ Unregistered Human Trial</span>
-                            <span class="marker-pill marker-pill-lilac">⚠️ 100% Remission Anomaly</span>
-                            <span class="marker-pill marker-pill-lilac">⚠️ Conspiratorial Suppression Claim</span>
-                            <span class="marker-pill marker-pill-lilac">⚠️ Fictitious Institute Affiliation</span>
-                        </div>
-                        <div class="paper-mock-action">
-                            <button class="btn-cta-lime" style="padding:12px 28px; font-size:0.85rem;" onclick="testCaseStudy('Journal of Bio-Resonance: Acoustic herbal frequency cures cellular tumors in 48 hours', 'Groundbreaking clinical study published in frontier biological journal proves acoustic resonant frequencies eradicate malignant cells with zero chemotherapy. Big pharma and medical boards are suppressing this miraculous cure! Download the unredacted preprint!', 'http://fringe-medical-preprints.top/resonance-study')">
-                                <span>⚡ Test This Academic Paper in Truth Scanner</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Archived Case Studies Grid -->
-                    <div class="section-subheading" style="margin:40px 0 18px 0;">
-                        <h4 style="font-family:var(--font-heading); font-size:1.35rem; color:var(--text-cream); font-weight:800;">Archived Pseudoscience & Academic Fraud Case Studies</h4>
-                        <span style="font-family:var(--font-mono); font-size:0.82rem; color:var(--text-muted);">Explore fabricated clinical trials and fringe physics claims</span>
-                    </div>
-
-                    <div class="case-studies-grid">
-                        <!-- Case 1 -->
-                        <div class="case-study-card-enhanced" style="border-top:3px solid var(--accent-lilac);">
-                            <div>
-                                <span class="case-tag" style="color:var(--accent-lilac);">PREDATORY ONCOLOGY // BIOMEDICAL</span>
-                                <h5 class="case-title">Journal of Bio-Resonance: Acoustic herbal frequency cures cellular tumors in 48 hours</h5>
-                                <p class="case-snippet">"Groundbreaking clinical study published in frontier biological journal proves acoustic resonant frequencies eradicate malignant cells with zero chemotherapy."</p>
-                                <div class="case-markers">
-                                    <span class="marker-pill marker-pill-lilac">Unregistered Trial</span>
-                                    <span class="marker-pill marker-pill-lilac">Miracle Cure Buzzwords</span>
-                                    <span class="marker-pill marker-pill-lilac">Predatory Publisher (.top)</span>
-                                </div>
-                            </div>
-                            <button class="btn-case-test" onclick="testCaseStudy('Journal of Bio-Resonance: Acoustic herbal frequency cures cellular tumors in 48 hours', 'Groundbreaking clinical study published in frontier biological journal proves acoustic resonant frequencies eradicate malignant cells with zero chemotherapy. Big pharma and medical boards are suppressing this miraculous cure! Download the unredacted preprint!', 'http://fringe-medical-preprints.top/resonance-study')">
-                                <span>⚡ Test in Truth Scanner</span>
-                            </button>
-                        </div>
-
-                        <!-- Case 2 -->
-                        <div class="case-study-card-enhanced" style="border-top:3px solid var(--accent-lilac);">
-                            <div>
-                                <span class="case-tag" style="color:var(--accent-lilac);">CONSPIRATORIAL PREPRINT // CLIMATE</span>
-                                <h5 class="case-title">Preprint Archive: Ionospheric micro-wave antennas deliberately engineer droughts</h5>
-                                <p class="case-snippet">"Classified meteorological research reveals coordinated ionospheric excitation arrays are deployed to manipulate regional rainfall patterns and induce economic droughts."</p>
-                                <div class="case-markers">
-                                    <span class="marker-pill marker-pill-lilac">Geoengineering Trope</span>
-                                    <span class="marker-pill marker-pill-lilac">Hallucinated Citations</span>
-                                    <span class="marker-pill marker-pill-lilac">Fringe Physics Claims</span>
-                                </div>
-                            </div>
-                            <button class="btn-case-test" onclick="testCaseStudy('Preprint Archive: Ionospheric micro-wave antennas deliberately engineer droughts', 'Classified meteorological research reveals coordinated ionospheric excitation arrays are deployed to manipulate regional rainfall patterns and induce economic droughts across targeted continents. The hidden weather control documents finally exposed!', 'http://geoengineering-leaked-archive.org/ion-pulse')">
-                                <span>⚡ Test in Truth Scanner</span>
-                            </button>
-                        </div>
-
-                        <!-- Case 3 -->
-                        <div class="case-study-card-enhanced" style="border-top:3px solid var(--accent-lilac);">
-                            <div>
-                                <span class="case-tag" style="color:var(--accent-lilac);">FREE ENERGY PSEUDOSCIENCE // PHYSICS</span>
-                                <h5 class="case-title">Journal of Quantum Energetics: Over-unity electromagnetic coils extract infinite zero-point energy</h5>
-                                <p class="case-snippet">"Peer-reviewed experimental analysis demonstrates that toroidal resonant coil configurations extract vacuum zero-point energy with 420% over-unity efficiency, rendering grid power obsolete."</p>
-                                <div class="case-markers">
-                                    <span class="marker-pill marker-pill-lilac">Thermodynamic Violation</span>
-                                    <span class="marker-pill marker-pill-lilac">Unverified Laboratory</span>
-                                    <span class="marker-pill marker-pill-lilac">Predatory Open-Access</span>
-                                </div>
-                            </div>
-                            <button class="btn-case-test" onclick="testCaseStudy('Journal of Quantum Energetics: Over-unity electromagnetic coils extract infinite zero-point energy', 'Peer-reviewed experimental analysis demonstrates that toroidal resonant coil configurations extract vacuum zero-point energy with 420% over-unity efficiency, rendering grid power and fossil energy obsolete overnight. Energy cartels are attempting to suppress this paper!', 'http://free-energy-preprints.xyz/vacuum-coil')">
-                                <span>⚡ Test in Truth Scanner</span>
-                            </button>
-                        </div>
-
-                        <!-- Case 4 -->
-                        <div class="case-study-card-enhanced" style="border-top:3px solid var(--accent-lilac);">
-                            <div>
-                                <span class="case-tag" style="color:var(--accent-lilac);">DANGEROUS PSEUDOMEDICINE // HEALTH</span>
-                                <h5 class="case-title">Frontier Immunology Review: Colloidal silver nano-suspensions create permanent immunity</h5>
-                                <p class="case-snippet">"Double-blind clinical evaluations demonstrate daily oral intake of high-density colloidal silver nanoparticles permanently prevents infectious cellular invasion, replacing biological vaccines."</p>
-                                <div class="case-markers">
-                                    <span class="marker-pill marker-pill-lilac">Toxic Heavy Metal Claim</span>
-                                    <span class="marker-pill marker-pill-lilac">Bogus Clinical Trial</span>
-                                    <span class="marker-pill marker-pill-lilac">Antiscience Rhetoric</span>
-                                </div>
-                            </div>
-                            <button class="btn-case-test" onclick="testCaseStudy('Frontier Immunology Review: Colloidal silver nano-suspensions create permanent immunity', 'Double-blind clinical evaluations demonstrate daily oral intake of high-density colloidal silver nanoparticles permanently prevents infectious cellular invasion, replacing all biological vaccines forever. Medical boards are colluding to keep this inexpensive cure illegal!', 'http://silver-immunity-breakthrough.cc/colloidal-study')">
-                                <span>⚡ Test in Truth Scanner</span>
-                            </button>
-                        </div>
+                    <div class="glass-card simple-table-card">
+                        <div class="simple-table-scroll"><table class="simple-table"><thead><tr>
+                            <th data-i18n="fileNameLabel">File name</th><th data-i18n="contentTypeLabel">Content type</th><th data-i18n="scanDateLabel">Scan date</th><th data-i18n="resultLabel">Result</th><th data-i18n="viewResult">View result</th>
+                        </tr></thead><tbody id="historyRecords"><tr><td colspan="5">Loading...</td></tr></tbody></table></div>
                     </div>
                 </section>
 
@@ -1337,9 +276,9 @@
     <!-- Share Modal -->
     <div class="modal-backdrop" id="shareModal">
         <div class="modal-box">
-            <h3 style="font-family:var(--font-heading); font-size:1.4rem; font-weight:900; color:var(--text-cream); margin-bottom:12px;">Share Truth Dossier</h3>
+            <h3 style="font-family:var(--font-heading); font-size:1.4rem; font-weight:900; color:var(--text-cream); margin-bottom:12px;">Share analysis</h3>
             <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:18px;">
-                Share this verified fact-checking record with researchers, journalists, or your team:
+                Share this TRUTHLENS AI analysis:
             </p>
             <div style="display:flex; gap:10px; margin-bottom:24px;">
                 <input type="text" id="shareUrlInput" class="custom-input" readonly>
@@ -1355,6 +294,7 @@
     <div class="toast-container" id="toastContainer"></div>
 
     <!-- Application Script -->
-    <script src="/static/js/truthlens.js?v=3.6"></script>
+    <script src="/static/i18n/translations.js?v=2"></script>
+    <script src="/static/js/truthlens.js?v=3.10"></script>
 </body>
 </html>

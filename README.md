@@ -45,7 +45,7 @@ Launches the Flask web server with the full cyber-navy UI, REST APIs, and SQLite
 ```bash
 python app.py
 ```
-Open your browser at: **[http://127.0.0.1:8089](http://127.0.0.1:8089)**
+Open your browser at: **[http://localhost:8089](http://localhost:8089)**
 
 ### Method 2: Streamlit Companion Interface
 For users who prefer running Streamlit:

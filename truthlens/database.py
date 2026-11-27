@@ -62,6 +62,25 @@ def init_db():
     );
     """)
 
+    # Multimodal metadata columns; CREATE TABLE existing databases are upgraded in place.
+    new_columns = {
+        "model_prediction": "TEXT",
+        "input_type": "TEXT",
+        "file_type": "TEXT",
+        "extracted_text": "TEXT",
+        "ocr_text": "TEXT",
+        "ocr_language": "TEXT",
+        "image_authenticity": "TEXT",
+        "fact_check_status": "TEXT",
+        "fact_check_evidence": "TEXT",
+        "scan_datetime": "TEXT"
+    }
+    cursor.execute("PRAGMA table_info(analyses)")
+    existing_columns = {row[1] for row in cursor.fetchall()}
+    for column_name, column_type in new_columns.items():
+        if column_name not in existing_columns:
+            cursor.execute(f"ALTER TABLE analyses ADD COLUMN {column_name} {column_type}")
+
     conn.commit()
 
     # Seed baseline users if none exist
@@ -208,9 +227,11 @@ def save_analysis(data: dict) -> int:
     cursor.execute("""
     INSERT INTO analyses (
         user_id, title, source_url, source_domain, content_snippet,
-        prediction, confidence, credibility_score, risk_level, category,
-        manipulation_signals, xai_tokens, reasons, verification_steps, is_saved
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        prediction, model_prediction, confidence, credibility_score, risk_level, category,
+        manipulation_signals, xai_tokens, reasons, verification_steps, is_saved,
+        input_type, file_type, extracted_text, ocr_text, ocr_language,
+        image_authenticity, fact_check_status, fact_check_evidence, scan_datetime
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """, (
         data.get("user_id", "guest"),
         data.get("title", "Untitled Article"),
@@ -218,6 +239,7 @@ def save_analysis(data: dict) -> int:
         data.get("source_domain", ""),
         data.get("content_snippet", "")[:500],
         data.get("prediction", "NEEDS_VERIFICATION"),
+        data.get("model_prediction", data.get("prediction", "NEEDS_VERIFICATION")),
         float(data.get("confidence", 50.0)),
         float(data.get("credibility_score", 50.0)),
         data.get("risk_level", "MODERATE"),
@@ -226,14 +248,23 @@ def save_analysis(data: dict) -> int:
         json.dumps(data.get("xai_tokens", [])),
         json.dumps(data.get("reasons", [])),
         json.dumps(data.get("verification_steps", [])),
-        0
+        0,
+        data.get("input_type", "text"),
+        data.get("file_type", ""),
+        data.get("extracted_text", "")[:100000],
+        data.get("ocr_text", "")[:100000],
+        data.get("ocr_language", "eng"),
+        json.dumps(data.get("image_authenticity", {})),
+        data.get("fact_check_status", "Unverified"),
+        json.dumps(data.get("fact_check_evidence", [])),
+        datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     ))
     record_id = cursor.lastrowid
     conn.commit()
     conn.close()
     return record_id
 
-def get_history(limit=50, offset=0, prediction=None, category=None, search=None, saved_only=False):
+def get_history(limit=50, offset=0, prediction=None, category=None, search=None, saved_only=False, user_id=None, input_type=None):
     """Retrieves filtered historical records."""
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -241,9 +272,17 @@ def get_history(limit=50, offset=0, prediction=None, category=None, search=None,
     query = "SELECT * FROM analyses WHERE 1=1"
     params = []
 
+    if user_id:
+        query += " AND user_id = ?"
+        params.append(user_id)
+
     if prediction:
         query += " AND prediction = ?"
         params.append(prediction)
+
+    if input_type and input_type != "All":
+        query += " AND input_type = ?"
+        params.append(input_type)
 
     if category and category != "All":
         query += " AND category = ?"
@@ -267,85 +306,112 @@ def get_history(limit=50, offset=0, prediction=None, category=None, search=None,
     result = []
     for row in rows:
         item = dict(row)
-        for json_col in ["manipulation_signals", "xai_tokens", "reasons", "verification_steps"]:
+        for json_col in ["manipulation_signals", "xai_tokens", "reasons", "verification_steps", "image_authenticity", "fact_check_evidence"]:
             if item.get(json_col):
                 try:
                     item[json_col] = json.loads(item[json_col])
                 except Exception:
-                    item[json_col] = []
+                    item[json_col] = {} if json_col == "image_authenticity" else []
         result.append(item)
     return result
 
-def get_analysis_by_id(record_id: int):
+def get_analysis_by_id(record_id: int, user_id=None):
     """Retrieves full analysis record by ID."""
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM analyses WHERE id = ?", (record_id,))
+    if user_id:
+        cursor.execute("SELECT * FROM analyses WHERE id = ? AND user_id = ?", (record_id, user_id))
+    else:
+        cursor.execute("SELECT * FROM analyses WHERE id = ?", (record_id,))
     row = cursor.fetchone()
     conn.close()
     if not row:
         return None
     item = dict(row)
-    for json_col in ["manipulation_signals", "xai_tokens", "reasons", "verification_steps"]:
+    for json_col in ["manipulation_signals", "xai_tokens", "reasons", "verification_steps", "image_authenticity", "fact_check_evidence"]:
         if item.get(json_col):
             try:
                 item[json_col] = json.loads(item[json_col])
             except Exception:
-                item[json_col] = []
+                item[json_col] = {} if json_col == "image_authenticity" else []
     return item
 
-def toggle_save_analysis(record_id: int):
+def toggle_save_analysis(record_id: int, user_id=None):
     """Toggles bookmark status of an analysis."""
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("UPDATE analyses SET is_saved = CASE WHEN is_saved = 1 THEN 0 ELSE 1 END WHERE id = ?", (record_id,))
+    if user_id:
+        cursor.execute("UPDATE analyses SET is_saved = CASE WHEN is_saved = 1 THEN 0 ELSE 1 END WHERE id = ? AND user_id = ?", (record_id, user_id))
+    else:
+        cursor.execute("UPDATE analyses SET is_saved = CASE WHEN is_saved = 1 THEN 0 ELSE 1 END WHERE id = ?", (record_id,))
     conn.commit()
-    cursor.execute("SELECT is_saved FROM analyses WHERE id = ?", (record_id,))
-    new_val = cursor.fetchone()[0]
+    if user_id:
+        cursor.execute("SELECT is_saved FROM analyses WHERE id = ? AND user_id = ?", (record_id, user_id))
+    else:
+        cursor.execute("SELECT is_saved FROM analyses WHERE id = ?", (record_id,))
+    row = cursor.fetchone()
+    new_val = row[0] if row else None
     conn.close()
     return new_val
 
-def delete_analysis(record_id: int):
+def delete_analysis(record_id: int, user_id=None):
     """Deletes an analysis record."""
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("DELETE FROM analyses WHERE id = ?", (record_id,))
+    if user_id:
+        cursor.execute("DELETE FROM analyses WHERE id = ? AND user_id = ?", (record_id, user_id))
+    else:
+        cursor.execute("DELETE FROM analyses WHERE id = ?", (record_id,))
     deleted = cursor.rowcount > 0
     conn.commit()
     conn.close()
     return deleted
 
-def clear_history():
+def clear_history(user_id=None):
     """Clears history while preserving saved bookmarks."""
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("DELETE FROM analyses WHERE is_saved = 0")
+    if user_id:
+        cursor.execute("DELETE FROM analyses WHERE is_saved = 0 AND user_id = ?", (user_id,))
+    else:
+        cursor.execute("DELETE FROM analyses WHERE is_saved = 0")
     conn.commit()
     conn.close()
     return True
 
-def get_dashboard_stats():
+def get_dashboard_stats(user_id=None):
     """Calculates live metrics for the user dashboard."""
     conn = get_db_connection()
     cursor = conn.cursor()
 
-    cursor.execute("SELECT COUNT(*) FROM analyses")
+    where = " WHERE user_id = ?" if user_id else ""
+    params = (user_id,) if user_id else ()
+    cursor.execute("SELECT COUNT(*) FROM analyses" + where, params)
     total = cursor.fetchone()[0]
 
-    cursor.execute("SELECT COUNT(*) FROM analyses WHERE prediction = 'FAKE'")
+    cursor.execute("SELECT COUNT(*) FROM analyses" + where + (" AND" if where else " WHERE") + " prediction = 'FAKE'", params)
     fake_count = cursor.fetchone()[0]
 
-    cursor.execute("SELECT COUNT(*) FROM analyses WHERE prediction = 'REAL'")
+    cursor.execute("SELECT COUNT(*) FROM analyses" + where + (" AND" if where else " WHERE") + " prediction = 'REAL'", params)
     real_count = cursor.fetchone()[0]
 
-    cursor.execute("SELECT COUNT(*) FROM analyses WHERE prediction = 'NEEDS_VERIFICATION'")
+    cursor.execute("SELECT COUNT(*) FROM analyses" + where + (" AND" if where else " WHERE") + " prediction = 'NEEDS_VERIFICATION'", params)
     unverified_count = cursor.fetchone()[0]
 
-    cursor.execute("SELECT COUNT(*) FROM analyses WHERE is_saved = 1")
+    cursor.execute("SELECT COUNT(*) FROM analyses" + where + (" AND" if where else " WHERE") + " is_saved = 1", params)
     saved_count = cursor.fetchone()[0]
 
+    cursor.execute("SELECT COUNT(*) FROM analyses" + where + (" AND" if where else " WHERE") + " input_type = 'document'", params)
+    document_count = cursor.fetchone()[0]
+
+    cursor.execute("SELECT COUNT(*) FROM analyses" + where + (" AND" if where else " WHERE") + " input_type = 'image'", params)
+    image_count = cursor.fetchone()[0]
+
+    cursor.execute("SELECT input_type, COUNT(*) AS cnt FROM analyses" + where + " GROUP BY input_type", params)
+    input_type_counts = {row["input_type"] or "text": row["cnt"] for row in cursor.fetchall()}
+
     # Category breakdown
-    cursor.execute("SELECT category, COUNT(*) as cnt FROM analyses GROUP BY category")
+    cursor.execute("SELECT category, COUNT(*) as cnt FROM analyses" + where + " GROUP BY category", params)
     category_counts = {row["category"]: row["cnt"] for row in cursor.fetchall()}
 
     # Weekly activity (last 7 days)
@@ -354,7 +420,10 @@ def get_dashboard_stats():
     for i in range(6, -1, -1):
         day_date = (datetime.now() - timedelta(days=i)).strftime("%Y-%m-%d")
         day_label = (datetime.now() - timedelta(days=i)).strftime("%a")
-        cursor.execute("SELECT COUNT(*) FROM analyses WHERE date(created_at) = ?", (day_date,))
+        if user_id:
+            cursor.execute("SELECT COUNT(*) FROM analyses WHERE user_id = ? AND date(created_at) = ?", (user_id, day_date))
+        else:
+            cursor.execute("SELECT COUNT(*) FROM analyses WHERE date(created_at) = ?", (day_date,))
         cnt = cursor.fetchone()[0]
         days.append(day_label)
         counts_by_day.append(cnt)
@@ -367,6 +436,9 @@ def get_dashboard_stats():
         "likely_real": real_count,
         "needs_verification": unverified_count,
         "saved_reports": saved_count,
+        "documents_scanned": document_count,
+        "images_scanned": image_count,
+        "input_types": input_type_counts,
         "categories": category_counts,
         "weekly_labels": days,
         "weekly_data": counts_by_day
